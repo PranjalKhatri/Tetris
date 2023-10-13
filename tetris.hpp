@@ -29,14 +29,15 @@ public:
 
 private:
     bool DoesPieceFit(Tetramino t, int PosX, int PosY);
-    void InitTetraminos();
+    void InitTetraminos(void);
 public:
     Tetris();
-    void GameLoop();
-    void Display_Field();
+    void GameLoop(void);
+    void Display_Field(void);
     void spawn(int posX, int posY, tet_types t = tet_rand);
     void Move(int x, int y);
-    vector<char> CheckRow();
+    vector<char> CheckRow(void);
+    void GetInput(void);
     bool IsRunning(void) { return m_isrunning; }
     ~Tetris();
 };
@@ -215,6 +216,11 @@ vector<char> Tetris::CheckRow()
     }
     return rowsnums;
    // last_playing_field = playing_field;
+}
+
+void Tetris::GetInput(void)
+{
+    
 }
 
 void Tetris::InitTetraminos() {
