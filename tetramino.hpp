@@ -13,8 +13,8 @@ private:
 
 private:
     void ComputeNextRotation(void);
-    void SetVars(int h, int w, char* arr);
 public:
+    void SetVars(int h, int w, char* arr);
     Tetramino(int height, int width, char* arr);
     Tetramino() {};
     int GetWidth(void) { return m_width; }

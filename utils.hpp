@@ -14,7 +14,7 @@ public:
 };
 
 int Random::GetRandomNumber(int range){
-    return ((rand()%range) +1);
+    return ((rand()%range));
 }
 int Random::GetRandomNumber(int ub, int lb){
     int rd = lb + (rand() % (ub - lb + 1));
