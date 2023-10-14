@@ -1,4 +1,4 @@
-#include "utils.hpp"
+#include "..\include\utils.hpp"
 
 int Random::GetRandomNumber(int range){
     return ((rand()%range));

@@ -2,12 +2,12 @@
 #define _TETRIS_HPP_
 
 #pragma region include_directives
-#include "tetramino.hpp"
+#include ".\tetramino.hpp"
 #include <windows.h>
-#include "utils.hpp"
+#include ".\utils.hpp"
 #include <pthread.h>
 #include <conio.h>
-#include<iostream>
+#include <iostream>
 /*
 // template <class T>
 // class Vector2
@@ -44,7 +44,7 @@ public:
 private:
     //Classic Tetris dimensions
     const int SCREENWIDTH = 12;
-    const int SCREENHEIGHT = 14;
+    const int SCREENHEIGHT = 18;
 
     //Current playing fied
     unsigned char* playing_field;

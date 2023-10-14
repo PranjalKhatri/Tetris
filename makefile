@@ -1,18 +1,18 @@
-any: main.o utils.o tetramino.o
-	g++ -lpthread -pthread -o Tetris main.o tetramino.o utils.o
+any: main.o utils.o tetramino.o .\src\main.cpp .\lib\utils.cpp .\lib\tetramino.cpp
+	g++ -lpthread -pthread -o .\bin\Tetris main.o tetramino.o utils.o
 
-main.o : main.cpp
-	g++ -c main.cpp
+main.o : .\src\main.cpp
+	g++ -c .\src\main.cpp
 
-utils.o : utils.cpp
-	g++ -c utils.cpp
+utils.o : .\lib\utils.cpp
+	g++ -c .\lib\utils.cpp
 
-tetramino.o : tetramino.cpp
-	g++ -c tetramino.cpp
+tetramino.o : .\lib\tetramino.cpp
+	g++ -c .\lib\tetramino.cpp
 
 clean:
-	del *.exe
-	del *.o
+	del .\bin\*.exe
+	del .\*.o
 rebuild:
 	make clean
 	make

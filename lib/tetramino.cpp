@@ -1,4 +1,4 @@
-#include "tetramino.hpp"
+#include "..\include\tetramino.hpp"
 
 Tetramino::Tetramino(int height, int width, char* arr)
 {

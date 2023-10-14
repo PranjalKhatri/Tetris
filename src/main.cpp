@@ -1,6 +1,6 @@
 #include <iostream>
-#include "tetramino.hpp"
-#include "tetris.hpp"
+#include "..\include\tetramino.hpp"
+#include "..\include\tetris.hpp"
 #include <pthread.h>
 
 using namespace std;
@@ -13,8 +13,10 @@ int main()
     t.GameLoop();
     pthread_join(ptid,NULL);
     cout<<"Press any key to Continue...";
+    Sleep(200);
+    system("color 07");
     cin.ignore();
-    getch();
+    
     // Sleep(100);
     
     return 0;
