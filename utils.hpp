@@ -13,4 +13,6 @@ public:
     int GetRandomNumber(int range);
 };
 
+
+
 #endif

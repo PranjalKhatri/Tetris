@@ -5,6 +5,8 @@
 #include "utils.hpp"
 #include <pthread.h>
 #include <conio.h>
+
+/*
 // template <class T>
 // class Vector2
 // {
@@ -20,6 +22,7 @@
 // }
 //     ~Vector2() = default;
 // };
+*/
 
 class Tetris
 {
@@ -34,7 +37,7 @@ private:
     Tetramino* last_spawn = nullptr;
     int last_posX = 0, last_posY = 0;
     Tetramino tets[5];
-    int px = 0,py = 1;
+    int px = 0, py = 1;
 public:
     enum tet_types {
         tet_square,
@@ -53,7 +56,7 @@ public:
     void GameLoop(void);
     void Display_Field(void);
     void spawn(int posX, int posY, tet_types t = tet_rand);
-    void Move();
+    void Move(int x, int y, bool can_terminate = true);
     vector<char> CheckRow(void);
     static void* GetInput(void*);
     bool IsRunning(void) { return m_isrunning; }
@@ -106,13 +109,13 @@ void Tetris::GameLoop()
             //Taken via threading
         //Logic
         if (last_spawn != nullptr) {
-            Move();
+            Move(px, py);
         }
         else {
-            spawn(8,2,tet_bar);
-            
+            spawn(8, 2, tet_bar);
+
         }
-        cout<<"x "<<px<<" y"<<py<<endl;
+        cout << "x " << px << " y" << py << endl;
         CheckRow();
         //output
         Sleep(500);
@@ -141,9 +144,7 @@ void Tetris::Display_Field()
 
 }
 //x left, y below
-void Tetris::Move() {
-    int x = px;
-    int y = 1;
+void Tetris::Move(int x, int y, bool can_terminate) {
     vector<vector<int>> arr = last_spawn->GetPiece();
     if (DoesPieceFit((*last_spawn), (last_posX - x), (last_posY + y))) {
         // cout<<"pop"<<last_spawn->GetPiece()[0][0]<<" pop";
@@ -167,21 +168,23 @@ void Tetris::Move() {
         last_posY += y;
     }
     else {
-        //Chage the letters
-        for (int i = 0; i < last_spawn->GetWidth(); i++)
-        {
-            for (int j = 0; j < last_spawn->GetHeight(); j++)
+        if (can_terminate)
+        { //Chage the letters
+            for (int i = 0; i < last_spawn->GetWidth(); i++)
             {
-                if ((arr[j][i] == 1) && (playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] == '0')) {
+                for (int j = 0; j < last_spawn->GetHeight(); j++)
+                {
+                    if ((arr[j][i] == 1) && (playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] == '0')) {
 
-                    playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = "ABCDEFGHIJKLMNOPQRSTUVWXXYZ"[random.GetRandomNumber(27)];
+                        playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = "ABCDEFGHIJKLMNOPQRSTUVWXXYZ"[random.GetRandomNumber(27)];
 
-                    last_playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = 'G';
+                        last_playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = 'G';
+                    }
                 }
             }
+
+            last_spawn = nullptr;
         }
-        // delete last_spawn;
-        last_spawn = nullptr;
     }
 }
 
@@ -237,7 +240,7 @@ vector<char> Tetris::CheckRow()
 void* Tetris::GetInput(void* obj)
 {
     Tetris* t = (Tetris*)obj;
-    while (t->m_isrunning) {
+    while (true) {
         int a, b;
         char c;
         // c = getch();
@@ -257,15 +260,21 @@ void* Tetris::GetInput(void* obj)
         // t->py = b;
         // Sleep(400);
         // cin.clear();
-        if(GetKeyState('A') & 0x8000){
+        if (GetKeyState('A') & 0x8000) {
             a = 1;
-            // cout<<"A";
-        }else if(GetKeyState('D') & 0x8000){
+        }
+        else if (GetKeyState('D') & 0x8000) {
             a = -1;
-        }else{
+        }
+        else if (GetKeyState('Q') & 0x8000) {
+            a = 2;
+        }
+        else if (GetKeyState('E') & 0x8000) {
+            a = -2;
+        }
+        else {
             a = 0;
         }
-        Sleep(100);
         t->px = a;
     }
 }
