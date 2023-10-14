@@ -13,17 +13,4 @@ public:
     int GetRandomNumber(int range);
 };
 
-template <class T>
-class Vector2
-{
-private:
-    T x;
-    T y;
-public:
-    Vector2() = default;
-    void set(T x,T y);
-    ~Vector2() = default;
-};
-
-
 #endif

@@ -1,5 +1,5 @@
 any: main.o utils.o tetramino.o
-	g++ -o Tetris main.o tetramino.o utils.o
+	g++ -lpthread -pthread -o Tetris main.o tetramino.o utils.o
 
 main.o : main.cpp
 	g++ -c main.cpp

@@ -1,13 +1,18 @@
 #include <iostream>
 #include "tetramino.hpp"
 #include "tetris.hpp"
-#include <thread>
+#include <pthread.h>
+
 using namespace std;
 int main()
 {
+    pthread_t ptid;
     Tetris t;
+    pthread_create(&ptid,NULL,&(Tetris::GetInput),(void*)&t);
     t.spawn(1,1,Tetris::tet_bar);
-    std::thread p();
     t.GameLoop();
+    pthread_join(ptid,NULL);
+    // Sleep(100);
+    
     return 0;
 }

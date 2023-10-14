@@ -11,9 +11,3 @@ Random::Random()
 {
     srand(time(NULL));
 }
-
-template <class T>
-void Vector2<T>::set(T x,T y){
-    this->x = x;
-    this->y  =y;
-}
