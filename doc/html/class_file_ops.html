@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tetris: FileOps Class Reference</title>
+<title>Weird Tetris: FileOps Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tetris<span id="projectnumber">&#160;1.0.1</span>
+   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.0.2.0</span>
    </div>
-   <div id="projectbrief">A simple Tetris game</div>
+   <div id="projectbrief">A weirdly working tetris  no one knows how it works or how it crashes</div>
   </td>
  </tr>
  </tbody>
@@ -97,16 +97,24 @@ $(document).ready(function(){initNavTree('class_file_ops.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_file_ops_8hpp_source.html">FileOps.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="utils_8hpp_source.html">utils.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac5d0da3d655c0310b66551d1c1d8298f" id="r_ac5d0da3d655c0310b66551d1c1d8298f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_ops.html#ac5d0da3d655c0310b66551d1c1d8298f">FileOps</a> (std::string name)</td></tr>
+<tr class="memdesc:ac5d0da3d655c0310b66551d1c1d8298f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the class and set the file name.  <br /></td></tr>
 <tr class="separator:ac5d0da3d655c0310b66551d1c1d8298f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a282f0612c8e236ddedfcf9ecae3a4e8b" id="r_a282f0612c8e236ddedfcf9ecae3a4e8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_ops.html#a282f0612c8e236ddedfcf9ecae3a4e8b">~FileOps</a> ()=default</td></tr>
 <tr class="separator:a282f0612c8e236ddedfcf9ecae3a4e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef7851539a35379d967f6721a95ac609" id="r_aef7851539a35379d967f6721a95ac609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_ops.html#aef7851539a35379d967f6721a95ac609">Write</a> (std::string message)</td></tr>
+<tr class="memdesc:aef7851539a35379d967f6721a95ac609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given string to the file in append mode.  <br /></td></tr>
 <tr class="separator:aef7851539a35379d967f6721a95ac609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52201f1a82c18593b15b9519de4741d4" id="r_a52201f1a82c18593b15b9519de4741d4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_ops.html#a52201f1a82c18593b15b9519de4741d4">read</a> ()</td></tr>
+<tr class="memdesc:a52201f1a82c18593b15b9519de4741d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">reads the lines from the file  <br /></td></tr>
+<tr class="separator:a52201f1a82c18593b15b9519de4741d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7315ae16d8d80b5cdfd5728741aa9147" id="r_a7315ae16d8d80b5cdfd5728741aa9147"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_ops.html#a7315ae16d8d80b5cdfd5728741aa9147">clear</a> ()</td></tr>
+<tr class="memdesc:a7315ae16d8d80b5cdfd5728741aa9147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the content of the file.  <br /></td></tr>
+<tr class="separator:a7315ae16d8d80b5cdfd5728741aa9147"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac5d0da3d655c0310b66551d1c1d8298f" name="ac5d0da3d655c0310b66551d1c1d8298f"></a>
@@ -124,6 +132,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialises the class and set the file name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>name of file to use </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -153,6 +169,45 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7315ae16d8d80b5cdfd5728741aa9147" name="a7315ae16d8d80b5cdfd5728741aa9147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7315ae16d8d80b5cdfd5728741aa9147">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FileOps::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the content of the file. </p>
+
+</div>
+</div>
+<a id="a52201f1a82c18593b15b9519de4741d4" name="a52201f1a82c18593b15b9519de4741d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52201f1a82c18593b15b9519de4741d4">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; FileOps::read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>reads the lines from the file </p>
+<dl class="section return"><dt>Returns</dt><dd>a vector of strings each corresponding to a different line in order </dd></dl>
+
+</div>
+</div>
 <a id="aef7851539a35379d967f6721a95ac609" name="aef7851539a35379d967f6721a95ac609"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef7851539a35379d967f6721a95ac609">&#9670;&#160;</a></span>Write()</h2>
 
@@ -169,10 +224,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Writes the given string to the file in append mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>message to write </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="_file_ops_8hpp_source.html">FileOps.hpp</a></li>
+<li>include/<a class="el" href="utils_8hpp_source.html">utils.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

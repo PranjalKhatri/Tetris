@@ -1,0 +1,13 @@
+digraph "Tetramino::GetRotatedPiece"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Tetramino::GetRotatedPiece",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge3_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Tetris::Rotate",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_tetris.html#a2d231c022a51aadad9b3c41fa7c558f9",tooltip="Well it rotates the piece if it can But even i dont know what is the fucking origin with respect to i..."];
+  Node2 -> Node3 [id="edge4_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Tetris::GameLoop",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_tetris.html#a311943597585d781a6f7dc5c3d5b3cee",tooltip="Main Game loop of function which hadles all the game loginc and GUI."];
+}

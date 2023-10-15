@@ -46,6 +46,7 @@ public:
     int multiplier = 2;
 private:
     //Classic Tetris dimensions
+    bool is_rotated = false;
     const int SCREENWIDTH = 12;
     const int SCREENHEIGHT = 18;
 
@@ -79,7 +80,7 @@ private:
     /// @param PosX,PosY origin of Tetramino on board 
     /// @return true if it fits and false if it dont
     bool DoesPieceFit(Tetramino t, int PosX, int PosY);
-    
+
     /// @brief initialize all your tetraminos here
     void InitTetraminos(void);
     void setcolor(int color);
@@ -87,7 +88,7 @@ private:
 public:
     /// @brief Well it rotates the piece if it can But even i dont know what is the fucking origin with respect to it is rotating 
     void Rotate();
-    
+
     Tetris();
 
     /// @brief Main Game loop of function which hadles all the game loginc and GUI
@@ -164,8 +165,11 @@ void Tetris::GameLoop()
         //Input
             //Taken via threading
         //Logic
+        if (is_rotated)
+        {
+            Rotate();
 
-
+        }
 
         if (last_spawn != nullptr) {
             if (px != 0) {
@@ -389,7 +393,8 @@ void* Tetris::GetInput(void* obj)
             // b = 1;
         }
         if (GetKeyState('Z') & 0x8000) {
-            t->Rotate();
+            if (t->is_rotated == false)
+                t->is_rotated = true;  
         }
         t->px = a;
         Sleep(100);
@@ -503,7 +508,8 @@ void Tetris::spawn(int posX, int posY, tet_types t)
 }
 
 void Tetris::Rotate() {
-    if (DoesPieceFit(*(last_spawn->GetRotatedPiece()), last_posX, last_posY)) {
+    Tetramino rp = *(last_spawn->GetRotatedPiece());
+    if (DoesPieceFit(rp, last_posX, last_posY)) {
         for (int i = 0; i < SCREENWIDTH; i++)
         {
             for (int j = 0; j < SCREENHEIGHT; j++)
@@ -532,6 +538,7 @@ void Tetris::Rotate() {
 
 
     }
+    is_rotated = false;
 }
 
 Tetris::~Tetris()

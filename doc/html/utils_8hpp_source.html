@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tetris: include/utils.hpp Source File</title>
+<title>Weird Tetris: include/utils.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tetris<span id="projectnumber">&#160;1.0.1</span>
+   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.0.2.0</span>
    </div>
-   <div id="projectbrief">A simple Tetris game</div>
+   <div id="projectbrief">A weirdly working tetris  no one knows how it works or how it crashes</div>
   </td>
  </tr>
  </tbody>
@@ -103,25 +103,47 @@ $(document).ready(function(){initNavTree('utils_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include&lt;stdlib.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include&lt;time.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_random.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_random.html">Random</a></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_random.html#acb76b49c3903a3c4fb67fd216341f08d">   11</a></span>    <a class="code hl_function" href="class_random.html#acb76b49c3903a3c4fb67fd216341f08d">Random</a>();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_random.html#a93662e2f7251ac63b49614404a6c91e3">   12</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_random.html#a93662e2f7251ac63b49614404a6c91e3">GetRandomNumber</a>(<span class="keywordtype">int</span> lb,<span class="keywordtype">int</span> ub);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_random.html#a0fd6a5507fc3429f26f402caf5ffa343">   13</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_random.html#a0fd6a5507fc3429f26f402caf5ffa343">GetRandomNumber</a>(<span class="keywordtype">int</span> range);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_random.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_random.html">Random</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_random.html#acb76b49c3903a3c4fb67fd216341f08d">   13</a></span>    <a class="code hl_function" href="class_random.html#acb76b49c3903a3c4fb67fd216341f08d">Random</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_random.html#a93662e2f7251ac63b49614404a6c91e3">   14</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_random.html#a93662e2f7251ac63b49614404a6c91e3">GetRandomNumber</a>(<span class="keywordtype">int</span> lb,<span class="keywordtype">int</span> ub);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_random.html#a0fd6a5507fc3429f26f402caf5ffa343">   15</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_random.html#a0fd6a5507fc3429f26f402caf5ffa343">GetRandomNumber</a>(<span class="keywordtype">int</span> range);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
 </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_random_html"><div class="ttname"><a href="class_random.html">Random</a></div><div class="ttdef"><b>Definition</b> utils.hpp:8</div></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_file_ops.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="class_file_ops.html">FileOps</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::string f_name;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;std::string&gt; lines;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_file_ops.html#ac5d0da3d655c0310b66551d1c1d8298f">   28</a></span>    <a class="code hl_function" href="class_file_ops.html#ac5d0da3d655c0310b66551d1c1d8298f">FileOps</a>(std::string name);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_file_ops.html#a282f0612c8e236ddedfcf9ecae3a4e8b">   29</a></span>    <a class="code hl_function" href="class_file_ops.html#a282f0612c8e236ddedfcf9ecae3a4e8b">~FileOps</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_file_ops.html#aef7851539a35379d967f6721a95ac609">   32</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_file_ops.html#aef7851539a35379d967f6721a95ac609">Write</a>(std::string message);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_file_ops.html#a52201f1a82c18593b15b9519de4741d4">   35</a></span>    std::vector&lt;std::string&gt; <a class="code hl_function" href="class_file_ops.html#a52201f1a82c18593b15b9519de4741d4">read</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_file_ops.html#a7315ae16d8d80b5cdfd5728741aa9147">   37</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_file_ops.html#a7315ae16d8d80b5cdfd5728741aa9147">clear</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_file_ops_html"><div class="ttname"><a href="class_file_ops.html">FileOps</a></div><div class="ttdef"><b>Definition</b> utils.hpp:19</div></div>
+<div class="ttc" id="aclass_file_ops_html_a282f0612c8e236ddedfcf9ecae3a4e8b"><div class="ttname"><a href="class_file_ops.html#a282f0612c8e236ddedfcf9ecae3a4e8b">FileOps::~FileOps</a></div><div class="ttdeci">~FileOps()=default</div></div>
+<div class="ttc" id="aclass_file_ops_html_a52201f1a82c18593b15b9519de4741d4"><div class="ttname"><a href="class_file_ops.html#a52201f1a82c18593b15b9519de4741d4">FileOps::read</a></div><div class="ttdeci">std::vector&lt; std::string &gt; read()</div><div class="ttdoc">reads the lines from the file</div></div>
+<div class="ttc" id="aclass_file_ops_html_a7315ae16d8d80b5cdfd5728741aa9147"><div class="ttname"><a href="class_file_ops.html#a7315ae16d8d80b5cdfd5728741aa9147">FileOps::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clears the content of the file.</div></div>
+<div class="ttc" id="aclass_file_ops_html_ac5d0da3d655c0310b66551d1c1d8298f"><div class="ttname"><a href="class_file_ops.html#ac5d0da3d655c0310b66551d1c1d8298f">FileOps::FileOps</a></div><div class="ttdeci">FileOps(std::string name)</div><div class="ttdoc">Initialises the class and set the file name.</div></div>
+<div class="ttc" id="aclass_file_ops_html_aef7851539a35379d967f6721a95ac609"><div class="ttname"><a href="class_file_ops.html#aef7851539a35379d967f6721a95ac609">FileOps::Write</a></div><div class="ttdeci">void Write(std::string message)</div><div class="ttdoc">Writes the given string to the file in append mode.</div></div>
+<div class="ttc" id="aclass_random_html"><div class="ttname"><a href="class_random.html">Random</a></div><div class="ttdef"><b>Definition</b> utils.hpp:10</div></div>
 <div class="ttc" id="aclass_random_html_a0fd6a5507fc3429f26f402caf5ffa343"><div class="ttname"><a href="class_random.html#a0fd6a5507fc3429f26f402caf5ffa343">Random::GetRandomNumber</a></div><div class="ttdeci">int GetRandomNumber(int range)</div></div>
 <div class="ttc" id="aclass_random_html_a93662e2f7251ac63b49614404a6c91e3"><div class="ttname"><a href="class_random.html#a93662e2f7251ac63b49614404a6c91e3">Random::GetRandomNumber</a></div><div class="ttdeci">int GetRandomNumber(int lb, int ub)</div></div>
 <div class="ttc" id="aclass_random_html_acb76b49c3903a3c4fb67fd216341f08d"><div class="ttname"><a href="class_random.html#acb76b49c3903a3c4fb67fd216341f08d">Random::Random</a></div><div class="ttdeci">Random()</div></div>

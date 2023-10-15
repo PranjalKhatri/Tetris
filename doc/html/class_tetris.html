@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tetris: Tetris Class Reference</title>
+<title>Weird Tetris: Tetris Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tetris<span id="projectnumber">&#160;1.0.1</span>
+   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.0.2.0</span>
    </div>
-   <div id="projectbrief">A simple Tetris game</div>
+   <div id="projectbrief">A weirdly working tetris  no one knows how it works or how it crashes</div>
   </td>
  </tr>
  </tbody>
@@ -130,7 +130,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a450fddc9532057c2e5686fbc7ab509b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the playing field and next <a class="el" href="class_tetramino.html">Tetramino</a>.  <br /></td></tr>
 <tr class="separator:a450fddc9532057c2e5686fbc7ab509b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2e4ada486ea700831eead2c078faa06" id="r_ab2e4ada486ea700831eead2c078faa06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#ab2e4ada486ea700831eead2c078faa06">spawn</a> (int posX, int posY, <a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689">tet_types</a> t)</td></tr>
-<tr class="memdesc:ab2e4ada486ea700831eead2c078faa06"><td class="mdescLeft">&#160;</td><td class="mdescRight">well it was supposedly made to change color but hey sometimes thing dont work according to you so don't use it, i will update if its ready  <br /></td></tr>
+<tr class="memdesc:ab2e4ada486ea700831eead2c078faa06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns the given tetramino at the given position; if it cant spawn it sets last_spawn to null.  <br /></td></tr>
 <tr class="separator:ab2e4ada486ea700831eead2c078faa06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81e13e7210ec7a75ba74b990eda2046e" id="r_a81e13e7210ec7a75ba74b990eda2046e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a81e13e7210ec7a75ba74b990eda2046e">Move</a> (int x, int y, bool randomize)</td></tr>
 <tr class="memdesc:a81e13e7210ec7a75ba74b990eda2046e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the last_spawn to given location.  <br /></td></tr>
@@ -423,17 +423,13 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>well it was supposedly made to change color but hey sometimes thing dont work according to you so don't use it, i will update if its ready </p>
+<p>Spawns the given tetramino at the given position; if it cant spawn it sets last_spawn to null. </p>
+<p>well it was supposedly made to change color but hey sometimes thing dont work according to you so don't use it, i will update if its ready</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>color to set ; type in console {color /?} without brackets of course the integer corresponds to the foregound colors</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Spawns the given tetramino at the given position; if it cant spawn it sets last_spawn to null </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
     <tr><td class="paramname">posX,posY</td><td>position to spawn on </td></tr>
-    <tr><td class="paramname">t</td><td>type of tetramino </td></tr>
+    <tr><td class="paramname">t</td><td>type of tetramino</td></tr>
+    <tr><td class="paramname">color</td><td>color to set ; type in console {color /?} without brackets of course the integer corresponds to the foregound colors </td></tr>
   </table>
   </dd>
 </dl>

@@ -2,17 +2,21 @@
 \hypertarget{class_file_ops}{}\label{class_file_ops}\index{FileOps@{FileOps}}
 
 
-{\ttfamily \#include $<$File\+Ops.\+hpp$>$}
+{\ttfamily \#include $<$utils.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_file_ops_ac5d0da3d655c0310b66551d1c1d8298f}{File\+Ops}} (std\+::string name)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialises the class and set the file name. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_file_ops_a282f0612c8e236ddedfcf9ecae3a4e8b}{\texorpdfstring{$\sim$}{\string~}\+File\+Ops}} ()=default
 \item 
 void \mbox{\hyperlink{class_file_ops_aef7851539a35379d967f6721a95ac609}{Write}} (std\+::string message)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Writes the given string to the file in append mode. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_file_ops_a52201f1a82c18593b15b9519de4741d4}{read}} ()
+\begin{DoxyCompactList}\small\item\em reads the lines from the file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_ops_a7315ae16d8d80b5cdfd5728741aa9147}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears the content of the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -22,6 +26,15 @@ void \mbox{\hyperlink{class_file_ops_aef7851539a35379d967f6721a95ac609}{Write}} 
 \doxysubsubsection{\texorpdfstring{FileOps()}{FileOps()}}
 {\footnotesize\ttfamily File\+Ops\+::\+File\+Ops (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
 
+
+
+Initialises the class and set the file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of file to use \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_file_ops_a282f0612c8e236ddedfcf9ecae3a4e8b}\label{class_file_ops_a282f0612c8e236ddedfcf9ecae3a4e8b} 
 \index{FileOps@{FileOps}!````~FileOps@{\texorpdfstring{$\sim$}{\string~}FileOps}}
 \index{````~FileOps@{\texorpdfstring{$\sim$}{\string~}FileOps}!FileOps@{FileOps}}
@@ -31,6 +44,29 @@ void \mbox{\hyperlink{class_file_ops_aef7851539a35379d967f6721a95ac609}{Write}} 
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_file_ops_a7315ae16d8d80b5cdfd5728741aa9147}\label{class_file_ops_a7315ae16d8d80b5cdfd5728741aa9147} 
+\index{FileOps@{FileOps}!clear@{clear}}
+\index{clear@{clear}!FileOps@{FileOps}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void File\+Ops\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the content of the file. 
+
+\Hypertarget{class_file_ops_a52201f1a82c18593b15b9519de4741d4}\label{class_file_ops_a52201f1a82c18593b15b9519de4741d4} 
+\index{FileOps@{FileOps}!read@{read}}
+\index{read@{read}!FileOps@{FileOps}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ File\+Ops\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+reads the lines from the file 
+
+\begin{DoxyReturn}{Returns}
+a vector of strings each corresponding to a different line in order 
+\end{DoxyReturn}
 \Hypertarget{class_file_ops_aef7851539a35379d967f6721a95ac609}\label{class_file_ops_aef7851539a35379d967f6721a95ac609} 
 \index{FileOps@{FileOps}!Write@{Write}}
 \index{Write@{Write}!FileOps@{FileOps}}
@@ -39,6 +75,15 @@ void \mbox{\hyperlink{class_file_ops_aef7851539a35379d967f6721a95ac609}{Write}} 
 
 
 
+Writes the given string to the file in append mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & message to write \\
+\hline
+\end{DoxyParams}
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{_file_ops_8hpp}{File\+Ops.\+hpp}}\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{utils_8hpp}{utils.\+hpp}}\end{DoxyCompactItemize}

@@ -7,21 +7,35 @@
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include<stdlib.h>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include<time.h>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_random}{Random}}}
-\DoxyCodeLine{00008\ \{}
-\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_random_acb76b49c3903a3c4fb67fd216341f08d}{Random}}();}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_random_a93662e2f7251ac63b49614404a6c91e3}{GetRandomNumber}}(\textcolor{keywordtype}{int}\ lb,\textcolor{keywordtype}{int}\ ub);}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_random_a0fd6a5507fc3429f26f402caf5ffa343}{GetRandomNumber}}(\textcolor{keywordtype}{int}\ range);}
-\DoxyCodeLine{00014\ \};}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_random}{Random}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_random_acb76b49c3903a3c4fb67fd216341f08d}{Random}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_random_a93662e2f7251ac63b49614404a6c91e3}{GetRandomNumber}}(\textcolor{keywordtype}{int}\ lb,\textcolor{keywordtype}{int}\ ub);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_random_a0fd6a5507fc3429f26f402caf5ffa343}{GetRandomNumber}}(\textcolor{keywordtype}{int}\ range);}
+\DoxyCodeLine{00016\ \};}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_file_ops}{FileOps}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ f\_name;}
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<std::string>\ lines;}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_file_ops_ac5d0da3d655c0310b66551d1c1d8298f}{FileOps}}(std::string\ name);}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_file_ops_a282f0612c8e236ddedfcf9ecae3a4e8b}{\string~FileOps}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_ops_aef7851539a35379d967f6721a95ac609}{Write}}(std::string\ message);}
+\DoxyCodeLine{00035\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{class_file_ops_a52201f1a82c18593b15b9519de4741d4}{read}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_ops_a7315ae16d8d80b5cdfd5728741aa9147}{clear}}();}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

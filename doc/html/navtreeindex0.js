@@ -1,12 +1,12 @@
 var NAVTREEINDEX0 =
 {
-"_file_ops_8hpp.html":[1,0,0,0],
-"_file_ops_8hpp_source.html":[1,0,0,0],
 "annotated.html":[0,0],
 "class_file_ops.html":[0,0,0],
 "class_file_ops.html#a282f0612c8e236ddedfcf9ecae3a4e8b":[0,0,0,1],
+"class_file_ops.html#a52201f1a82c18593b15b9519de4741d4":[0,0,0,3],
+"class_file_ops.html#a7315ae16d8d80b5cdfd5728741aa9147":[0,0,0,2],
 "class_file_ops.html#ac5d0da3d655c0310b66551d1c1d8298f":[0,0,0,0],
-"class_file_ops.html#aef7851539a35379d967f6721a95ac609":[0,0,0,2],
+"class_file_ops.html#aef7851539a35379d967f6721a95ac609":[0,0,0,4],
 "class_random.html":[0,0,1],
 "class_random.html#a0fd6a5507fc3429f26f402caf5ffa343":[0,0,1,2],
 "class_random.html#a93662e2f7251ac63b49614404a6c91e3":[0,0,1,1],
@@ -50,10 +50,10 @@ var NAVTREEINDEX0 =
 "functions_vars.html":[0,2,2],
 "index.html":[],
 "pages.html":[],
-"tetramino_8hpp.html":[1,0,0,1],
-"tetramino_8hpp_source.html":[1,0,0,1],
-"tetris_8hpp.html":[1,0,0,2],
-"tetris_8hpp_source.html":[1,0,0,2],
-"utils_8hpp.html":[1,0,0,3],
-"utils_8hpp_source.html":[1,0,0,3]
+"tetramino_8hpp.html":[1,0,0,0],
+"tetramino_8hpp_source.html":[1,0,0,0],
+"tetris_8hpp.html":[1,0,0,1],
+"tetris_8hpp_source.html":[1,0,0,1],
+"utils_8hpp.html":[1,0,0,2],
+"utils_8hpp_source.html":[1,0,0,2]
 };

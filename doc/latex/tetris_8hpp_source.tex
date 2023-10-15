@@ -2,8 +2,8 @@
 \hypertarget{tetris_8hpp_source}{}\label{tetris_8hpp_source}\index{include/tetris.hpp@{include/tetris.hpp}}
 \mbox{\hyperlink{tetris_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_TETRIS\_HPP\_}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_TETRIS\_HPP\_}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_TETRIS\_HPP\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_TETRIS\_HPP\_}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ region\ include\_directives}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tetramino_8hpp}{.\(\backslash\)tetramino.hpp}}"{}}}
@@ -50,474 +50,491 @@
 \DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tetris_a62b1bd3783726a3c30247f51e693608e}{multiplier}}\ =\ 2;}
 \DoxyCodeLine{00047\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//Classic\ Tetris\ dimensions}}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ SCREENWIDTH\ =\ 12;}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ SCREENHEIGHT\ =\ 18;}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//Current\ playing\ fied}}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ playing\_field;}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ last\_playing\_field;}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_isrunning\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ can\_godown\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//To\ access\ our\ utility\ random\ class}}
-\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{class_random}{Random}}\ random;}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//next\_spawn\ to\ display\ and\ last\_spawn\ to\ run}}
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_tetramino}{Tetramino}}*\ last\_spawn\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\ next\_spawn;}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//last\ positions\ of\ last\_spawn}}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ last\_posX\ =\ 0,\ last\_posY\ =\ 0;}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_tetramino}{Tetramino}}\ tets[\mbox{\hyperlink{class_tetris_a2af386e6902e53e0a0d8718167266c63}{size\_tet\_types}}];}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//our\ input\ vector}}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ px\ =\ 0,\ py\ =\ 1;}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#pragma\ endregion}}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{bool}\ DoesPieceFit(\mbox{\hyperlink{class_tetramino}{Tetramino}}\ t,\ \textcolor{keywordtype}{int}\ PosX,\ \textcolor{keywordtype}{int}\ PosY);}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ InitTetraminos(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ setcolor(\textcolor{keywordtype}{int}\ color);}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a2d231c022a51aadad9b3c41fa7c558f9}{Rotate}}();}
-\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{class_tetris_a0216a055ecb3568412c35fc78e52bf14}{Tetris}}();}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a311943597585d781a6f7dc5c3d5b3cee}{GameLoop}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}{Display\_Field}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_ab2e4ada486ea700831eead2c078faa06}{spawn}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY,\ \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\ t);}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}{Move}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ randomize);}
-\DoxyCodeLine{00088\ \ \ \ \ vector<char>\ \mbox{\hyperlink{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}{CheckRow}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_tetris_a5f228522c2d7376d2d3cc9e23b6482be}{GetInput}}(\textcolor{keywordtype}{void}*);}
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tetris_ae35c3244db72ef10b9e34efd0f5d2ea5}{IsRunning}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ m\_isrunning;\ \}}
-\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{class_tetris_a83428bf8cd94dc29673d5f0160718818}{\string~Tetris}}();}
-\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_rotated\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ SCREENWIDTH\ =\ 12;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ SCREENHEIGHT\ =\ 18;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//Current\ playing\ fied}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ playing\_field;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ last\_playing\_field;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_isrunning\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ can\_godown\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//To\ access\ our\ utility\ random\ class}}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_random}{Random}}\ random;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//next\_spawn\ to\ display\ and\ last\_spawn\ to\ run}}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_tetramino}{Tetramino}}*\ last\_spawn\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\ next\_spawn;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//last\ positions\ of\ last\_spawn}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ last\_posX\ =\ 0,\ last\_posY\ =\ 0;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_tetramino}{Tetramino}}\ tets[\mbox{\hyperlink{class_tetris_a2af386e6902e53e0a0d8718167266c63}{size\_tet\_types}}];}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//our\ input\ vector}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ px\ =\ 0,\ py\ =\ 1;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#pragma\ endregion}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ DoesPieceFit(\mbox{\hyperlink{class_tetramino}{Tetramino}}\ t,\ \textcolor{keywordtype}{int}\ PosX,\ \textcolor{keywordtype}{int}\ PosY);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ InitTetraminos(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ setcolor(\textcolor{keywordtype}{int}\ color);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a2d231c022a51aadad9b3c41fa7c558f9}{Rotate}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_tetris_a0216a055ecb3568412c35fc78e52bf14}{Tetris}}();}
 \DoxyCodeLine{00093\ }
-\DoxyCodeLine{00098\ \textcolor{keywordtype}{bool}\ Tetris::DoesPieceFit(\mbox{\hyperlink{class_tetramino}{Tetramino}}\ t,\ \textcolor{keywordtype}{int}\ PosX,\ \textcolor{keywordtype}{int}\ PosY)}
-\DoxyCodeLine{00099\ \{}
-\DoxyCodeLine{00100\ \ \ \ \ vector<vector<int>>\ arr\ =\ t.\mbox{\hyperlink{class_tetramino_ae09e94695247393ee10108af3cfaced1}{GetPiece}}();}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ t.\mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}();\ i++)}
-\DoxyCodeLine{00102\ \ \ \ \ \{}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ t.\mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}();\ j++)}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//check\ if\ index\ is\ occupied\ in\ the\ piece\ and\ on\ the\ board\ (previously)}}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//i+posy\ denotes\ column\ ,\ }}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[j][i]\ ==\ 1\ \&\&\ (playing\_field[((j\ +\ PosX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ PosY]\ !=\ \textcolor{charliteral}{'\ '}\ \&\&\ playing\_field[((j\ +\ PosX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ PosY]\ !=\ \textcolor{charliteral}{'0'}))\ \{}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00111\ \ \ \ \ \}}
-\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a311943597585d781a6f7dc5c3d5b3cee}{GameLoop}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}{Display\_Field}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_ab2e4ada486ea700831eead2c078faa06}{spawn}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY,\ \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\ t);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}{Move}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ randomize);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00110\ \ \ \ \ vector<char>\ \mbox{\hyperlink{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}{CheckRow}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_tetris_a5f228522c2d7376d2d3cc9e23b6482be}{GetInput}}(\textcolor{keywordtype}{void}*);}
 \DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \mbox{\hyperlink{class_tetris_a0216a055ecb3568412c35fc78e52bf14}{Tetris::Tetris}}()}
-\DoxyCodeLine{00116\ \{}
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{int}\ rd;}
-\DoxyCodeLine{00118\ \ \ \ \ rd\ =\ random.\mbox{\hyperlink{class_random_a93662e2f7251ac63b49614404a6c91e3}{GetRandomNumber}}(5);}
-\DoxyCodeLine{00119\ \ \ \ \ next\_spawn\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\textcolor{keyword}{>}(rd);}
-\DoxyCodeLine{00120\ \ \ \ \ can\_godown\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00121\ \ \ \ \ m\_isrunning\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00122\ \ \ \ \ last\_spawn\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00123\ \ \ \ \ playing\_field\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[SCREENWIDTH\ *\ SCREENHEIGHT];\textcolor{comment}{//initializee\ the\ field}}
-\DoxyCodeLine{00124\ \ \ \ \ last\_playing\_field\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[SCREENWIDTH\ *\ SCREENHEIGHT];\textcolor{comment}{//initializee\ the\ field}}
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ SCREENWIDTH;\ x++)}
-\DoxyCodeLine{00126\ \ \ \ \ \{}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ SCREENHEIGHT;\ y++)}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[y\ *\ SCREENWIDTH\ +\ x]\ =\ (x\ ==\ 0\ ||\ x\ ==\ SCREENWIDTH\ -\/\ 1\ ||\ y\ ==\ 0\ ||\ y\ ==\ SCREENHEIGHT\ -\/\ 1)\ ?\ \textcolor{charliteral}{'\#'}\ :\ \textcolor{charliteral}{'\ '};}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ last\_playing\_field[y\ *\ SCREENWIDTH\ +\ x]\ =\ (x\ ==\ 0\ ||\ x\ ==\ SCREENWIDTH\ -\/\ 1\ ||\ y\ ==\ 0\ ||\ y\ ==\ SCREENHEIGHT\ -\/\ 1)\ ?\ \textcolor{charliteral}{'\#'}\ :\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tetris_ae35c3244db72ef10b9e34efd0f5d2ea5}{IsRunning}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ m\_isrunning;\ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{class_tetris_a83428bf8cd94dc29673d5f0160718818}{\string~Tetris}}();}
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{bool}\ Tetris::DoesPieceFit(\mbox{\hyperlink{class_tetramino}{Tetramino}}\ t,\ \textcolor{keywordtype}{int}\ PosX,\ \textcolor{keywordtype}{int}\ PosY)}
+\DoxyCodeLine{00120\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ vector<vector<int>>\ arr\ =\ t.\mbox{\hyperlink{class_tetramino_ae09e94695247393ee10108af3cfaced1}{GetPiece}}();}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ t.\mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}();\ i++)}
+\DoxyCodeLine{00123\ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ t.\mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}();\ j++)}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//check\ if\ index\ is\ occupied\ in\ the\ piece\ and\ on\ the\ board\ (previously)}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//i+posy\ denotes\ column\ ,\ }}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[j][i]\ ==\ 1\ \&\&\ (playing\_field[((j\ +\ PosX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ PosY]\ !=\ \textcolor{charliteral}{'\ '}\ \&\&\ playing\_field[((j\ +\ PosX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ PosY]\ !=\ \textcolor{charliteral}{'0'}))\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00132\ \ \ \ \ \}}
-\DoxyCodeLine{00133\ \ \ \ \ playing\_field[(int(SCREENHEIGHT\ /\ 2)\ -\/\ 1)\ *\ SCREENWIDTH]\ =\ \textcolor{charliteral}{'\ '};}
-\DoxyCodeLine{00134\ \ \ \ \ playing\_field[(int(SCREENHEIGHT\ /\ 2))\ *\ SCREENWIDTH]\ =\ \textcolor{charliteral}{'\ '};}
-\DoxyCodeLine{00135\ \ \ \ \ playing\_field[(int(SCREENHEIGHT\ /\ 2)\ +\ 1)\ *\ SCREENWIDTH]\ =\ \textcolor{charliteral}{'\ '};}
-\DoxyCodeLine{00136\ \ \ \ \ InitTetraminos();}
-\DoxyCodeLine{00137\ \}}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a311943597585d781a6f7dc5c3d5b3cee}{Tetris::GameLoop}}()}
-\DoxyCodeLine{00141\ \{}
-\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{while}\ (m\_isrunning)\ \{}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Timings}}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Input}}
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Taken\ via\ threading}}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Logic}}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (last\_spawn\ !=\ \textcolor{keyword}{nullptr})\ \{}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (px\ !=\ 0)\ \{}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (px\ >\ 0)\ \{}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ px;\ i\ >=\ 0;\ i-\/-\/)}
-\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit((*last\_spawn),\ (last\_posX\ +\ i),\ (last\_posY\ +\ py)))\ \{}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ px;\ i\ <=\ 0;\ i++)}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit((*last\_spawn),\ (last\_posX\ +\ i),\ (last\_posY\ +\ py)))\ \{}
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}fit\ at\ px\ :\ "{}}\ <<\ i\ <<\ endl;}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ px\ =\ i;}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit((*last\_spawn),\ (last\_posX\ +\ px),\ (last\_posY\ +\ py)))}
-\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}{Move}}(px,\ py,\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}{Move}}(px,\ py,\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_ab2e4ada486ea700831eead2c078faa06}{spawn}}(8,\ 3,\ next\_spawn);}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}x\ "{}}\ <<\ px\ <<\ \textcolor{stringliteral}{"{}\ y"{}}\ <<\ -\/py\ <<\ endl;}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Handles\ the\ score}}
-\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}{CheckRow}}().size();}
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ s\ =\ \mbox{\hyperlink{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}{CheckRow}}().size();}
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ s-\/-\/;}
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_af57251dffe8ade668a403c6408ab42f9}{current\_Score}}\ +=\ \mbox{\hyperlink{class_tetris_afedb9b35b91854b6e1b1420d90f1b3b2}{rowscore}}\ *\ s;}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (s\ >\ 0)}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_af57251dffe8ade668a403c6408ab42f9}{current\_Score}}\ +=\ \mbox{\hyperlink{class_tetris_afedb9b35b91854b6e1b1420d90f1b3b2}{rowscore}}\ *\ \mbox{\hyperlink{class_tetris_a62b1bd3783726a3c30247f51e693608e}{multiplier}};}
-\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ s-\/-\/;}
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00198\ }
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//output}}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ Sleep(500);}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
-\DoxyCodeLine{00202\ }
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}{Display\_Field}}();}
-\DoxyCodeLine{00204\ }
-\DoxyCodeLine{00205\ \ \ \ \ \}}
-\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//\ CheckRow();}}
-\DoxyCodeLine{00207\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}YOU\ LOSE\(\backslash\)n"{}};}
-\DoxyCodeLine{00208\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tYOUR\ TOTAL\ SCORE\ WAS\ "{}}\ <<\ \mbox{\hyperlink{class_tetris_af57251dffe8ade668a403c6408ab42f9}{current\_Score}}\ <<\ endl;}
-\DoxyCodeLine{00209\ \ \ \ \ system(\textcolor{stringliteral}{"{}color\ 04"{}});}
-\DoxyCodeLine{00210\ \}}
-\DoxyCodeLine{00211\ }
-\DoxyCodeLine{00213\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}{Tetris::Display\_Field}}()}
-\DoxyCodeLine{00214\ \{}
-\DoxyCodeLine{00215\ \ \ \ \ \textcolor{comment}{//\ playing\_field[9*SCREENWIDTH+1]\ =\ '\#';}}
-\DoxyCodeLine{00216\ \ \ \ \ \textcolor{comment}{//\ playing\_field[9*SCREENWIDTH+2]\ =\ '\#';}}
-\DoxyCodeLine{00217\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Next\ Tetramino\ :\ "{}};}
-\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{switch}\ (next\_spawn)}
-\DoxyCodeLine{00219\ \ \ \ \ \{}
-\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
-\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Square"{}};}
-\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00223\ }
-\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
-\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}L"{}};}
-\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00134\ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \mbox{\hyperlink{class_tetris_a0216a055ecb3568412c35fc78e52bf14}{Tetris::Tetris}}()}
+\DoxyCodeLine{00137\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{int}\ rd;}
+\DoxyCodeLine{00139\ \ \ \ \ rd\ =\ random.\mbox{\hyperlink{class_random_a93662e2f7251ac63b49614404a6c91e3}{GetRandomNumber}}(5);}
+\DoxyCodeLine{00140\ \ \ \ \ next\_spawn\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\textcolor{keyword}{>}(rd);}
+\DoxyCodeLine{00141\ \ \ \ \ can\_godown\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00142\ \ \ \ \ m\_isrunning\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00143\ \ \ \ \ last\_spawn\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00144\ \ \ \ \ playing\_field\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[SCREENWIDTH\ *\ SCREENHEIGHT];\textcolor{comment}{//initializee\ the\ field}}
+\DoxyCodeLine{00145\ \ \ \ \ last\_playing\_field\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[SCREENWIDTH\ *\ SCREENHEIGHT];\textcolor{comment}{//initializee\ the\ field}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ SCREENWIDTH;\ x++)}
+\DoxyCodeLine{00147\ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ SCREENHEIGHT;\ y++)}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[y\ *\ SCREENWIDTH\ +\ x]\ =\ (x\ ==\ 0\ ||\ x\ ==\ SCREENWIDTH\ -\/\ 1\ ||\ y\ ==\ 0\ ||\ y\ ==\ SCREENHEIGHT\ -\/\ 1)\ ?\ \textcolor{charliteral}{'\#'}\ :\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ last\_playing\_field[y\ *\ SCREENWIDTH\ +\ x]\ =\ (x\ ==\ 0\ ||\ x\ ==\ SCREENWIDTH\ -\/\ 1\ ||\ y\ ==\ 0\ ||\ y\ ==\ SCREENHEIGHT\ -\/\ 1)\ ?\ \textcolor{charliteral}{'\#'}\ :\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ playing\_field[(int(SCREENHEIGHT\ /\ 2)\ -\/\ 1)\ *\ SCREENWIDTH]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00155\ \ \ \ \ playing\_field[(int(SCREENHEIGHT\ /\ 2))\ *\ SCREENWIDTH]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00156\ \ \ \ \ playing\_field[(int(SCREENHEIGHT\ /\ 2)\ +\ 1)\ *\ SCREENWIDTH]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00157\ \ \ \ \ InitTetraminos();}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a311943597585d781a6f7dc5c3d5b3cee}{Tetris::GameLoop}}()}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{while}\ (m\_isrunning)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Timings}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Input}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Taken\ via\ threading}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Logic}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_rotated)}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_a2d231c022a51aadad9b3c41fa7c558f9}{Rotate}}();}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (last\_spawn\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (px\ !=\ 0)\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (px\ >\ 0)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ px;\ i\ >=\ 0;\ i-\/-\/)}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit((*last\_spawn),\ (last\_posX\ +\ i),\ (last\_posY\ +\ py)))\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ px;\ i\ <=\ 0;\ i++)}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit((*last\_spawn),\ (last\_posX\ +\ i),\ (last\_posY\ +\ py)))\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}fit\ at\ px\ :\ "{}}\ <<\ i\ <<\ endl;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ px\ =\ i;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit((*last\_spawn),\ (last\_posX\ +\ px),\ (last\_posY\ +\ py)))}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}{Move}}(px,\ py,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}{Move}}(px,\ py,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_ab2e4ada486ea700831eead2c078faa06}{spawn}}(8,\ 3,\ next\_spawn);}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}x\ "{}}\ <<\ px\ <<\ \textcolor{stringliteral}{"{}\ y"{}}\ <<\ -\/py\ <<\ endl;}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Handles\ the\ score}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}{CheckRow}}().size();}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ s\ =\ \mbox{\hyperlink{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}{CheckRow}}().size();}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ s-\/-\/;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_af57251dffe8ade668a403c6408ab42f9}{current\_Score}}\ +=\ \mbox{\hyperlink{class_tetris_afedb9b35b91854b6e1b1420d90f1b3b2}{rowscore}}\ *\ s;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (s\ >\ 0)}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_af57251dffe8ade668a403c6408ab42f9}{current\_Score}}\ +=\ \mbox{\hyperlink{class_tetris_afedb9b35b91854b6e1b1420d90f1b3b2}{rowscore}}\ *\ \mbox{\hyperlink{class_tetris_a62b1bd3783726a3c30247f51e693608e}{multiplier}};}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ s-\/-\/;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{comment}{//output}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ Sleep(500);}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}{Display\_Field}}();}
 \DoxyCodeLine{00227\ }
-\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
-\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}S"{}};}
-\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00231\ }
-\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
-\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Straight"{}};}
-\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
-\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}T"{}};}
-\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00238\ }
-\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00241\ \ \ \ \ \}}
-\DoxyCodeLine{00242\ \ \ \ \ std::cout\ <<\ endl;}
-\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ SCREENWIDTH;\ i++)}
-\DoxyCodeLine{00244\ \ \ \ \ \{}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ SCREENHEIGHT;\ j++)}
-\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout<<(j*SCREENWIDTH\ +i)<<"{}\ "{};}}
-\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ playing\_field[j\ *\ SCREENWIDTH\ +\ i];}
-\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sleep(1);}}
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ std::cout\ <<\ endl;}
-\DoxyCodeLine{00252\ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{//\ CheckRow();}}
+\DoxyCodeLine{00230\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}YOU\ LOSE\(\backslash\)n"{}};}
+\DoxyCodeLine{00231\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tYOUR\ TOTAL\ SCORE\ WAS\ "{}}\ <<\ \mbox{\hyperlink{class_tetris_af57251dffe8ade668a403c6408ab42f9}{current\_Score}}\ <<\ endl;}
+\DoxyCodeLine{00232\ \ \ \ \ system(\textcolor{stringliteral}{"{}color\ 04"{}});}
+\DoxyCodeLine{00233\ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}{Tetris::Display\_Field}}()}
+\DoxyCodeLine{00236\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{comment}{//\ playing\_field[9*SCREENWIDTH+1]\ =\ '\#';}}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//\ playing\_field[9*SCREENWIDTH+2]\ =\ '\#';}}
+\DoxyCodeLine{00239\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Next\ Tetramino\ :\ "{}};}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{switch}\ (next\_spawn)}
+\DoxyCodeLine{00241\ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Square"{}};}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}L"{}};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}S"{}};}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{00253\ }
-\DoxyCodeLine{00254\ \}}
-\DoxyCodeLine{00255\ }
-\DoxyCodeLine{00257\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}{Tetris::Move}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ randomize)\ \{}
-\DoxyCodeLine{00258\ \ \ \ \ \textcolor{comment}{//get\ the\ piece\ array\ of\ last\ spawn}}
-\DoxyCodeLine{00259\ \ \ \ \ vector<vector<int>>\ arr\ =\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_ae09e94695247393ee10108af3cfaced1}{GetPiece}}();}
-\DoxyCodeLine{00260\ \ \ \ \ \textcolor{comment}{//check\ if\ it\ fits}}
-\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordflow}{if}\ (randomize\ ==\ \textcolor{keyword}{false})\ \{}
-\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout<<"{}pop"{}<<last\_spawn-\/>GetPiece()[0][0]<<"{}\ pop"{};}}
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}();\ i++)}
-\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}();\ j++)}
-\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((arr[j][i]\ ==\ 1)\ \&\&\ (playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ ==\ \textcolor{charliteral}{'0'}))\ \{}
-\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ pieces\ last\ position\ as\ empty}}
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{charliteral}{'\ '};}
-\DoxyCodeLine{00270\ }
-\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ move\ the\ current\ piece\ down\ }}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ last\_posX\ +\ x)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY\ +\ y]\ =\ \textcolor{charliteral}{'0'};}
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//update\ last\ playing\ field}}
-\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ last\_playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{charliteral}{'0'};}
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00278\ }
-\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ last\_posX\ +=\ x;}
-\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ last\_posY\ +=\ y;}
-\DoxyCodeLine{00281\ \ \ \ \ \}}
-\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Chage\ the\ letters}}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Straight"{}};}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}T"{}};}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00263\ \ \ \ \ \}}
+\DoxyCodeLine{00264\ \ \ \ \ std::cout\ <<\ endl;}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ SCREENWIDTH;\ i++)}
+\DoxyCodeLine{00266\ \ \ \ \ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ SCREENHEIGHT;\ j++)}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout<<(j*SCREENWIDTH\ +i)<<"{}\ "{};}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ playing\_field[j\ *\ SCREENWIDTH\ +\ i];}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sleep(1);}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ std::cout\ <<\ endl;}
+\DoxyCodeLine{00274\ \ \ \ \ \}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}{Tetris::Move}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{bool}\ randomize)\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{comment}{//get\ the\ piece\ array\ of\ last\ spawn}}
+\DoxyCodeLine{00280\ \ \ \ \ vector<vector<int>>\ arr\ =\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_ae09e94695247393ee10108af3cfaced1}{GetPiece}}();}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{comment}{//check\ if\ it\ fits}}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{if}\ (randomize\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout<<"{}pop"{}<<last\_spawn-\/>GetPiece()[0][0]<<"{}\ pop"{};}}
 \DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}();\ i++)}
 \DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}();\ j++)}
 \DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((arr[j][i]\ ==\ 1)\ \&\&\ (playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ ==\ \textcolor{charliteral}{'0'}))\ \{}
-\DoxyCodeLine{00289\ }
-\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{stringliteral}{"{}ABCD"{}}[random.\mbox{\hyperlink{class_random_a93662e2f7251ac63b49614404a6c91e3}{GetRandomNumber}}(4)];}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ pieces\ last\ position\ as\ empty}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{charliteral}{'\ '};}
 \DoxyCodeLine{00291\ }
-\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ last\_playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{charliteral}{'G'};}
-\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00296\ }
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ last\_spawn\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00298\ }
-\DoxyCodeLine{00299\ \ \ \ \ \}}
-\DoxyCodeLine{00300\ \}}
-\DoxyCodeLine{00301\ }
-\DoxyCodeLine{00304\ vector<char>\ \mbox{\hyperlink{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}{Tetris::CheckRow}}()}
-\DoxyCodeLine{00305\ \{}
-\DoxyCodeLine{00306\ \ \ \ \ vector<char>\ rowsnums;}
-\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (SCREENWIDTH);\ i++)}
-\DoxyCodeLine{00308\ \ \ \ \ \{}
-\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ (SCREENHEIGHT);\ j++)}
-\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playing\_field[j\ *\ SCREENWIDTH\ +\ i]\ ==\ \textcolor{charliteral}{'\ '})\ \{}
-\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ (SCREENHEIGHT\ -\/\ 1))\ \{}
-\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}\ \ \ "{}\ <<\ i\ <<\ "{}\ \ \ "{}\ <<\ endl;}}
-\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sleep(10);}}
-\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rowsnums.push\_back(i);}
-\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00325\ }
-\DoxyCodeLine{00326\ \ \ \ \ \}}
-\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordflow}{if}\ (rowsnums.size()\ >\ 1)\ \{}
-\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ rowsnums.pop\_back();}
-\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ (rowsnums.size());\ i++)}
-\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 1;\ j\ <\ (SCREENHEIGHT\ -\/\ 1);\ j++)}
-\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[(j\ *\ SCREENWIDTH)\ +\ rowsnums[i]]\ =\ \textcolor{charliteral}{'='};}
-\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00335\ }
-\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
-\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}{Display\_Field}}();}
-\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ Sleep(300);}
-\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ (SCREENWIDTH\ -\/\ 2);\ i\ >\ 1;i-\/-\/)}
-\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ SCREENHEIGHT;\ j++)}
-\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[j\ *\ SCREENWIDTH\ +\ i]\ =\ playing\_field[j\ *\ SCREENWIDTH\ +\ i\ -\/\ 1];}
-\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00346\ }
-\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00348\ \ \ \ \ \}}
-\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{return}\ rowsnums;}
-\DoxyCodeLine{00350\ \ \ \ \ \textcolor{comment}{//\ last\_playing\_field\ =\ playing\_field;}}
-\DoxyCodeLine{00351\ \}}
-\DoxyCodeLine{00352\ }
-\DoxyCodeLine{00354\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_tetris_a5f228522c2d7376d2d3cc9e23b6482be}{Tetris::GetInput}}(\textcolor{keywordtype}{void}*\ obj)}
-\DoxyCodeLine{00355\ \{}
-\DoxyCodeLine{00356\ \ \ \ \ \mbox{\hyperlink{class_tetris}{Tetris}}*\ t\ =\ (\mbox{\hyperlink{class_tetris}{Tetris}}*)obj;}
-\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{while}\ (t-\/>m\_isrunning)\ \{}
-\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a;}
-\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ the\ mostsignificat\ bit\ (0x800)\ =\ 1<<15\ is\ set\ then\ key\ is\ down}}
-\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{comment}{//refer\ to\ microsoft\ for\ more\ details\ https://learn.microsoft.com/en-\/us/windows/win32/inputdev/virtual-\/key-\/codes?redirectedfrom=MSDN}}
-\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'A'})\ \&\ 0x8000)\ \{}
-\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ -\/1;}
-\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'D'})\ \&\ 0x8000)\ \{}
-\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ 1;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ move\ the\ current\ piece\ down\ }}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ last\_posX\ +\ x)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY\ +\ y]\ =\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//update\ last\ playing\ field}}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ last\_playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ last\_posX\ +=\ x;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ last\_posY\ +=\ y;}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Chage\ the\ letters}}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}();\ i++)}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}();\ j++)}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((arr[j][i]\ ==\ 1)\ \&\&\ (playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ ==\ \textcolor{charliteral}{'0'}))\ \{}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{stringliteral}{"{}ABCD"{}}[random.\mbox{\hyperlink{class_random_a93662e2f7251ac63b49614404a6c91e3}{GetRandomNumber}}(4)];}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ last\_playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ last\_spawn\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \}}
+\DoxyCodeLine{00321\ \}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ vector<char>\ \mbox{\hyperlink{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}{Tetris::CheckRow}}()}
+\DoxyCodeLine{00324\ \{}
+\DoxyCodeLine{00325\ \ \ \ \ vector<char>\ rowsnums;}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (SCREENWIDTH);\ i++)}
+\DoxyCodeLine{00327\ \ \ \ \ \{}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ (SCREENHEIGHT);\ j++)}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playing\_field[j\ *\ SCREENWIDTH\ +\ i]\ ==\ \textcolor{charliteral}{'\ '})\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ (SCREENHEIGHT\ -\/\ 1))\ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}\ \ \ "{}\ <<\ i\ <<\ "{}\ \ \ "{}\ <<\ endl;}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sleep(10);}}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rowsnums.push\_back(i);}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \}}
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordflow}{if}\ (rowsnums.size()\ >\ 1)\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ rowsnums.pop\_back();}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ (rowsnums.size());\ i++)}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 1;\ j\ <\ (SCREENHEIGHT\ -\/\ 1);\ j++)}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[(j\ *\ SCREENWIDTH)\ +\ rowsnums[i]]\ =\ \textcolor{charliteral}{'='};}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}{Display\_Field}}();}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ Sleep(300);}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ (SCREENWIDTH\ -\/\ 2);\ i\ >\ 1;i-\/-\/)}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ SCREENHEIGHT;\ j++)}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[j\ *\ SCREENWIDTH\ +\ i]\ =\ playing\_field[j\ *\ SCREENWIDTH\ +\ i\ -\/\ 1];}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00365\ }
 \DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'Q'})\ \&\ 0x8000)\ \{}
-\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ -\/2;}
-\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'E'})\ \&\ 0x8000)\ \{}
-\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ 2;}
-\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ 0;}
-\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ b\ =\ 1;}}
-\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'Z'})\ \&\ 0x8000)\ \{}
-\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ t-\/>\mbox{\hyperlink{class_tetris_a2d231c022a51aadad9b3c41fa7c558f9}{Rotate}}();}
-\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ t-\/>px\ =\ a;}
-\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ Sleep(100);}
-\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ t-\/>py\ =\ b;}}
-\DoxyCodeLine{00383\ \ \ \ \ \}}
-\DoxyCodeLine{00384\ \}}
-\DoxyCodeLine{00385\ }
-\DoxyCodeLine{00387\ \textcolor{keywordtype}{void}\ Tetris::InitTetraminos()\ \{}
-\DoxyCodeLine{00388\ \ \ \ \ \textcolor{comment}{//23\ 345}}
-\DoxyCodeLine{00389\ \ \ \ \ \textcolor{comment}{//01\ 012}}
-\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{char}\ sq[5]\ =\ \{\ \textcolor{charliteral}{'0'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
-\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keywordtype}{char}\ s[5]\ =\ \{\ \textcolor{charliteral}{'0'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
-\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordtype}{char}\ l[5]\ =\ \{\ \textcolor{charliteral}{'0'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
-\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordtype}{char}\ bar[5]\ =\ \{\ \textcolor{charliteral}{'0'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
-\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordtype}{char}\ t[5]\ =\ \{\ \textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
-\DoxyCodeLine{00395\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689a1c4c9fdae8071f6b7a35a6b138569e31}{tet\_square}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(2,\ 2,\ sq);}
-\DoxyCodeLine{00396\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ad73e7f17cef9b77f0db2283cdd3beaea}{tet\_s}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(3,\ 2,\ s);}
-\DoxyCodeLine{00397\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689afa3daa2be4ee8fcacd5c548127ceefd6}{tet\_t}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(3,\ 2,\ t);}
-\DoxyCodeLine{00398\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ade2db103e14ce770ff022d0d0b3418bb}{tet\_l}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(2,\ 3,\ l);}
-\DoxyCodeLine{00399\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689aa371eb3876d7732ea11673edbbfd9821}{tet\_bar}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(4,\ 1,\ bar);}
-\DoxyCodeLine{00400\ \}}
-\DoxyCodeLine{00401\ }
-\DoxyCodeLine{00404\ \textcolor{comment}{/*\ void\ Tetris::setcolor(int\ color)}}
-\DoxyCodeLine{00405\ \textcolor{comment}{//\ \{}}
-\DoxyCodeLine{00406\ \textcolor{comment}{//\ \ \ \ \ switch\ (color)}}
-\DoxyCodeLine{00407\ \textcolor{comment}{//\ \ \ \ \ \{}}
-\DoxyCodeLine{00408\ \textcolor{comment}{//\ \ \ \ \ case\ 1:}}
-\DoxyCodeLine{00409\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 01"{});}}
-\DoxyCodeLine{00410\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00411\ \textcolor{comment}{}}
-\DoxyCodeLine{00412\ \textcolor{comment}{//\ \ \ \ \ case\ 2:}}
-\DoxyCodeLine{00413\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 02"{});}}
-\DoxyCodeLine{00414\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00415\ \textcolor{comment}{}}
-\DoxyCodeLine{00416\ \textcolor{comment}{//\ \ \ \ \ case\ 3:}}
-\DoxyCodeLine{00417\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 03"{});}}
-\DoxyCodeLine{00418\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00419\ \textcolor{comment}{}}
-\DoxyCodeLine{00420\ \textcolor{comment}{//\ \ \ \ \ case\ 4:}}
-\DoxyCodeLine{00421\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 04"{});}}
-\DoxyCodeLine{00422\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00423\ \textcolor{comment}{}}
-\DoxyCodeLine{00424\ \textcolor{comment}{//\ \ \ \ \ case\ 5:}}
-\DoxyCodeLine{00425\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 05"{});}}
-\DoxyCodeLine{00426\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00427\ \textcolor{comment}{}}
-\DoxyCodeLine{00428\ \textcolor{comment}{//\ \ \ \ \ case\ 6:}}
-\DoxyCodeLine{00429\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 06"{});}}
-\DoxyCodeLine{00430\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00431\ \textcolor{comment}{}}
-\DoxyCodeLine{00432\ \textcolor{comment}{//\ \ \ \ \ case\ 7:}}
-\DoxyCodeLine{00433\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 07"{});}}
-\DoxyCodeLine{00434\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00435\ \textcolor{comment}{}}
-\DoxyCodeLine{00436\ \textcolor{comment}{//\ \ \ \ \ case\ 8:}}
-\DoxyCodeLine{00437\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 08"{});}}
-\DoxyCodeLine{00438\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00439\ \textcolor{comment}{}}
-\DoxyCodeLine{00440\ \textcolor{comment}{//\ \ \ \ \ case\ 9:}}
-\DoxyCodeLine{00441\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 09"{});}}
-\DoxyCodeLine{00442\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00443\ \textcolor{comment}{}}
-\DoxyCodeLine{00444\ \textcolor{comment}{//\ \ \ \ \ default:}}
+\DoxyCodeLine{00367\ \ \ \ \ \}}
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordflow}{return}\ rowsnums;}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{comment}{//\ last\_playing\_field\ =\ playing\_field;}}
+\DoxyCodeLine{00370\ \}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_tetris_a5f228522c2d7376d2d3cc9e23b6482be}{Tetris::GetInput}}(\textcolor{keywordtype}{void}*\ obj)}
+\DoxyCodeLine{00373\ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \mbox{\hyperlink{class_tetris}{Tetris}}*\ t\ =\ (\mbox{\hyperlink{class_tetris}{Tetris}}*)obj;}
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keywordflow}{while}\ (t-\/>m\_isrunning)\ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ the\ mostsignificat\ bit\ (0x800)\ =\ 1<<15\ is\ set\ then\ key\ is\ down}}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{comment}{//refer\ to\ microsoft\ for\ more\ details\ https://learn.microsoft.com/en-\/us/windows/win32/inputdev/virtual-\/key-\/codes?redirectedfrom=MSDN}}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'A'})\ \&\ 0x8000)\ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ -\/1;}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'D'})\ \&\ 0x8000)\ \{}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ 1;}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'Q'})\ \&\ 0x8000)\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ -\/2;}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'E'})\ \&\ 0x8000)\ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ 2;}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ 0;}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ b\ =\ 1;}}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GetKeyState(\textcolor{charliteral}{'Z'})\ \&\ 0x8000)\ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t-\/>is\_rotated\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t-\/>is\_rotated\ =\ \textcolor{keyword}{true};\ \ }
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ t-\/>px\ =\ a;}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ Sleep(100);}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ t-\/>py\ =\ b;}}
+\DoxyCodeLine{00402\ \ \ \ \ \}}
+\DoxyCodeLine{00403\ \}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{keywordtype}{void}\ Tetris::InitTetraminos()\ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{comment}{//23\ 345}}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{comment}{//01\ 012}}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordtype}{char}\ sq[5]\ =\ \{\ \textcolor{charliteral}{'0'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordtype}{char}\ s[5]\ =\ \{\ \textcolor{charliteral}{'0'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keywordtype}{char}\ l[5]\ =\ \{\ \textcolor{charliteral}{'0'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{char}\ bar[5]\ =\ \{\ \textcolor{charliteral}{'0'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordtype}{char}\ t[5]\ =\ \{\ \textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'\(\backslash\)0'}\ \};}
+\DoxyCodeLine{00414\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689a1c4c9fdae8071f6b7a35a6b138569e31}{tet\_square}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(2,\ 2,\ sq);}
+\DoxyCodeLine{00415\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ad73e7f17cef9b77f0db2283cdd3beaea}{tet\_s}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(3,\ 2,\ s);}
+\DoxyCodeLine{00416\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689afa3daa2be4ee8fcacd5c548127ceefd6}{tet\_t}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(3,\ 2,\ t);}
+\DoxyCodeLine{00417\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ade2db103e14ce770ff022d0d0b3418bb}{tet\_l}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(2,\ 3,\ l);}
+\DoxyCodeLine{00418\ \ \ \ \ tets[\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689aa371eb3876d7732ea11673edbbfd9821}{tet\_bar}}].\mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(4,\ 1,\ bar);}
+\DoxyCodeLine{00419\ \}}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00423\ \textcolor{comment}{/*\ void\ Tetris::setcolor(int\ color)}}
+\DoxyCodeLine{00424\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{00425\ \textcolor{comment}{//\ \ \ \ \ switch\ (color)}}
+\DoxyCodeLine{00426\ \textcolor{comment}{//\ \ \ \ \ \{}}
+\DoxyCodeLine{00427\ \textcolor{comment}{//\ \ \ \ \ case\ 1:}}
+\DoxyCodeLine{00428\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 01"{});}}
+\DoxyCodeLine{00429\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{00430\ \textcolor{comment}{}}
+\DoxyCodeLine{00431\ \textcolor{comment}{//\ \ \ \ \ case\ 2:}}
+\DoxyCodeLine{00432\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 02"{});}}
+\DoxyCodeLine{00433\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{00434\ \textcolor{comment}{}}
+\DoxyCodeLine{00435\ \textcolor{comment}{//\ \ \ \ \ case\ 3:}}
+\DoxyCodeLine{00436\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 03"{});}}
+\DoxyCodeLine{00437\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{00438\ \textcolor{comment}{}}
+\DoxyCodeLine{00439\ \textcolor{comment}{//\ \ \ \ \ case\ 4:}}
+\DoxyCodeLine{00440\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 04"{});}}
+\DoxyCodeLine{00441\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{00442\ \textcolor{comment}{}}
+\DoxyCodeLine{00443\ \textcolor{comment}{//\ \ \ \ \ case\ 5:}}
+\DoxyCodeLine{00444\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 05"{});}}
 \DoxyCodeLine{00445\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
-\DoxyCodeLine{00446\ \textcolor{comment}{//\ \ \ \ \ \}}}
-\DoxyCodeLine{00447\ \textcolor{comment}{//\ \ \ \ \ //\ string\ color\ =\ "{}color\ 0"{}+to\_string(2);}}
-\DoxyCodeLine{00448\ \textcolor{comment}{//\ \ \ \ \ system("{}color\ 02"{});}}
-\DoxyCodeLine{00449\ \textcolor{comment}{//\ \}}}
-\DoxyCodeLine{00450\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00451\ }
-\DoxyCodeLine{00455\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_ab2e4ada486ea700831eead2c078faa06}{Tetris::spawn}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY,\ \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\ t)}
-\DoxyCodeLine{00456\ \{}
-\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keywordtype}{int}\ rd;}
-\DoxyCodeLine{00458\ \ \ \ \ rd\ =\ random.\mbox{\hyperlink{class_random_a93662e2f7251ac63b49614404a6c91e3}{GetRandomNumber}}(\mbox{\hyperlink{class_tetris_a2af386e6902e53e0a0d8718167266c63}{size\_tet\_types}});}
-\DoxyCodeLine{00459\ }
-\DoxyCodeLine{00460\ \ \ \ \ \mbox{\hyperlink{class_tetramino}{Tetramino}}\ spawned\ =\ tets[t];}
-\DoxyCodeLine{00461\ \ \ \ \ next\_spawn\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\textcolor{keyword}{>}(rd);}
-\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordtype}{int}\ spwidth\ =\ spawned.\mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}();}
-\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordtype}{int}\ spheight\ =\ spawned.\mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}();}
-\DoxyCodeLine{00464\ \ \ \ \ vector<vector<int>>\ sparr\ =\ spawned.\mbox{\hyperlink{class_tetramino_ae09e94695247393ee10108af3cfaced1}{GetPiece}}();}
-\DoxyCodeLine{00465\ \ \ \ \ \textcolor{comment}{//\ playing\_field[posX*SCREENWIDTH\ +\ posY]\ =\ '\#';}}
-\DoxyCodeLine{00466\ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit(spawned,\ posX,\ posY))\ \{}
-\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ spwidth;\ i++)}
-\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ spheight;\ j++)}
-\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//check\ if\ index\ is\ occupied\ in\ the\ piece\ and\ on\ the\ board}}
-\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//i+posy\ denotes\ column\ ,\ }}
-\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sparr[j][i]\ ==\ 1)\ \{}
-\DoxyCodeLine{00474\ }
-\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}\ filled"{}\ <<\ ((j\ +\ posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ posY\ <<\ "{}\(\backslash\)n"{};}}
-\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ posY]\ =\ \textcolor{charliteral}{'0'};}
-\DoxyCodeLine{00477\ }
-\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ last\_spawn\ =\ \&tets[t];}
-\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ last\_posX\ =\ posX;}
-\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ last\_posY\ =\ posY;}
-\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Display\_Field();}}
-\DoxyCodeLine{00485\ \ \ \ \ \}\textcolor{comment}{//cant\ spawn\ game\ over}}
-\DoxyCodeLine{00486\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ last\_spawn\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ m\_isrunning\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00489\ \ \ \ \ \}}
-\DoxyCodeLine{00490\ \ \ \ \ \textcolor{comment}{//change\ last\ state\ to\ current\ but\ after\ movement}}
-\DoxyCodeLine{00491\ \ \ \ \ \textcolor{comment}{//\ last\_playing\_field\ =\ playing\_field;}}
-\DoxyCodeLine{00492\ \}}
+\DoxyCodeLine{00446\ \textcolor{comment}{}}
+\DoxyCodeLine{00447\ \textcolor{comment}{//\ \ \ \ \ case\ 6:}}
+\DoxyCodeLine{00448\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 06"{});}}
+\DoxyCodeLine{00449\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{00450\ \textcolor{comment}{}}
+\DoxyCodeLine{00451\ \textcolor{comment}{//\ \ \ \ \ case\ 7:}}
+\DoxyCodeLine{00452\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 07"{});}}
+\DoxyCodeLine{00453\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{00454\ \textcolor{comment}{}}
+\DoxyCodeLine{00455\ \textcolor{comment}{//\ \ \ \ \ case\ 8:}}
+\DoxyCodeLine{00456\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 08"{});}}
+\DoxyCodeLine{00457\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{00458\ \textcolor{comment}{}}
+\DoxyCodeLine{00459\ \textcolor{comment}{//\ \ \ \ \ case\ 9:}}
+\DoxyCodeLine{00460\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ system("{}color\ 09"{});}}
+\DoxyCodeLine{00461\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{00462\ \textcolor{comment}{}}
+\DoxyCodeLine{00463\ \textcolor{comment}{//\ \ \ \ \ default:}}
+\DoxyCodeLine{00464\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{00465\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00466\ \textcolor{comment}{//\ \ \ \ \ //\ string\ color\ =\ "{}color\ 0"{}+to\_string(2);}}
+\DoxyCodeLine{00467\ \textcolor{comment}{//\ \ \ \ \ system("{}color\ 02"{});}}
+\DoxyCodeLine{00468\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00469\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_ab2e4ada486ea700831eead2c078faa06}{Tetris::spawn}}(\textcolor{keywordtype}{int}\ posX,\ \textcolor{keywordtype}{int}\ posY,\ \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\ t)}
+\DoxyCodeLine{00472\ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordtype}{int}\ rd;}
+\DoxyCodeLine{00474\ \ \ \ \ rd\ =\ random.\mbox{\hyperlink{class_random_a93662e2f7251ac63b49614404a6c91e3}{GetRandomNumber}}(\mbox{\hyperlink{class_tetris_a2af386e6902e53e0a0d8718167266c63}{size\_tet\_types}});}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \ \ \ \ \mbox{\hyperlink{class_tetramino}{Tetramino}}\ spawned\ =\ tets[t];}
+\DoxyCodeLine{00477\ \ \ \ \ next\_spawn\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\_types}}\textcolor{keyword}{>}(rd);}
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keywordtype}{int}\ spwidth\ =\ spawned.\mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}();}
+\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keywordtype}{int}\ spheight\ =\ spawned.\mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}();}
+\DoxyCodeLine{00480\ \ \ \ \ vector<vector<int>>\ sparr\ =\ spawned.\mbox{\hyperlink{class_tetramino_ae09e94695247393ee10108af3cfaced1}{GetPiece}}();}
+\DoxyCodeLine{00481\ \ \ \ \ \textcolor{comment}{//\ playing\_field[posX*SCREENWIDTH\ +\ posY]\ =\ '\#';}}
+\DoxyCodeLine{00482\ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit(spawned,\ posX,\ posY))\ \{}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ spwidth;\ i++)}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ spheight;\ j++)}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//check\ if\ index\ is\ occupied\ in\ the\ piece\ and\ on\ the\ board}}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//i+posy\ denotes\ column\ ,\ }}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sparr[j][i]\ ==\ 1)\ \{}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}\ filled"{}\ <<\ ((j\ +\ posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ posY\ <<\ "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ posY]\ =\ \textcolor{charliteral}{'0'};}
 \DoxyCodeLine{00493\ }
-\DoxyCodeLine{00495\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a2d231c022a51aadad9b3c41fa7c558f9}{Tetris::Rotate}}()\ \{}
-\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit(*(last\_spawn-\/>\mbox{\hyperlink{class_tetramino_a7062f2d01fe719d9e723010fd002606b}{GetRotatedPiece}}()),\ last\_posX,\ last\_posY))\ \{}
-\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ SCREENWIDTH;\ i++)}
-\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ SCREENHEIGHT;\ j++)}
-\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playing\_field[j\ *\ SCREENWIDTH\ +\ i]\ ==\ \textcolor{charliteral}{'0'})}
-\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[j\ *\ SCREENWIDTH\ +\ i]\ =\ \textcolor{charliteral}{'\ '};}
-\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00504\ }
-\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ last\_spawn\ =\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_a7062f2d01fe719d9e723010fd002606b}{GetRotatedPiece}}();}
-\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout<<"{}last\ spawn\ h"{}<<last\_spawn-\/>GetHeight()<<"{}\ w"{}<<last\_spawn-\/>GetWidth()<<endl;}}
-\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ vector<vector<int>>\ arr\ =\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_ae09e94695247393ee10108af3cfaced1}{GetPiece}}();}
-\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}();\ i++)}
-\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}();\ j++)}
-\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((arr[j][i]\ ==\ 1)\ \&\&\ (playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ ==\ \textcolor{charliteral}{'\ '}))\ \{}
-\DoxyCodeLine{00515\ }
-\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ "{}ABCD"{}[random.GetRandomNumber(4)];}}
-\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{charliteral}{'0'};}
-\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ last\_playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ 'G';}}
-\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ last\_spawn\ =\ \&tets[t];}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ last\_posX\ =\ posX;}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ last\_posY\ =\ posY;}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Display\_Field();}}
+\DoxyCodeLine{00501\ \ \ \ \ \}\textcolor{comment}{//cant\ spawn\ game\ over}}
+\DoxyCodeLine{00502\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ last\_spawn\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ m\_isrunning\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00505\ \ \ \ \ \}}
+\DoxyCodeLine{00506\ \ \ \ \ \textcolor{comment}{//change\ last\ state\ to\ current\ but\ after\ movement}}
+\DoxyCodeLine{00507\ \ \ \ \ \textcolor{comment}{//\ last\_playing\_field\ =\ playing\_field;}}
+\DoxyCodeLine{00508\ \}}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetris_a2d231c022a51aadad9b3c41fa7c558f9}{Tetris::Rotate}}()\ \{}
+\DoxyCodeLine{00511\ \ \ \ \ \mbox{\hyperlink{class_tetramino}{Tetramino}}\ rp\ =\ *(last\_spawn-\/>\mbox{\hyperlink{class_tetramino_a7062f2d01fe719d9e723010fd002606b}{GetRotatedPiece}}());}
+\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keywordflow}{if}\ (DoesPieceFit(rp,\ last\_posX,\ last\_posY))\ \{}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ SCREENWIDTH;\ i++)}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ SCREENHEIGHT;\ j++)}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playing\_field[j\ *\ SCREENWIDTH\ +\ i]\ ==\ \textcolor{charliteral}{'0'})}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[j\ *\ SCREENWIDTH\ +\ i]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00520\ }
 \DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00522\ }
-\DoxyCodeLine{00523\ }
-\DoxyCodeLine{00524\ \ \ \ \ \}}
-\DoxyCodeLine{00525\ \}}
-\DoxyCodeLine{00526\ }
-\DoxyCodeLine{00527\ \mbox{\hyperlink{class_tetris_a83428bf8cd94dc29673d5f0160718818}{Tetris::\string~Tetris}}()}
-\DoxyCodeLine{00528\ \{}
-\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keyword}{delete}[]\ last\_spawn;}
-\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keyword}{delete}[]\ playing\_field;}
-\DoxyCodeLine{00531\ \ \ \ \ \textcolor{keyword}{delete}[]\ last\_playing\_field;}
-\DoxyCodeLine{00532\ \}}
-\DoxyCodeLine{00533\ }
-\DoxyCodeLine{00534\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ last\_spawn\ =\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_a7062f2d01fe719d9e723010fd002606b}{GetRotatedPiece}}();}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout<<"{}last\ spawn\ h"{}<<last\_spawn-\/>GetHeight()<<"{}\ w"{}<<last\_spawn-\/>GetWidth()<<endl;}}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ vector<vector<int>>\ arr\ =\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_ae09e94695247393ee10108af3cfaced1}{GetPiece}}();}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}();\ i++)}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ last\_spawn-\/>\mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}();\ j++)}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((arr[j][i]\ ==\ 1)\ \&\&\ (playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ ==\ \textcolor{charliteral}{'\ '}))\ \{}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ "{}ABCD"{}[random.GetRandomNumber(4)];}}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ last\_playing\_field[((j\ +\ last\_posX)\ *\ SCREENWIDTH)\ -\/\ i\ +\ last\_posY]\ =\ 'G';}}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \ \ \ \ \}}
+\DoxyCodeLine{00541\ \ \ \ \ is\_rotated\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00542\ \}}
+\DoxyCodeLine{00543\ }
+\DoxyCodeLine{00544\ \mbox{\hyperlink{class_tetris_a83428bf8cd94dc29673d5f0160718818}{Tetris::\string~Tetris}}()}
+\DoxyCodeLine{00545\ \{}
+\DoxyCodeLine{00546\ \ \ \ \ \textcolor{keyword}{delete}[]\ last\_spawn;}
+\DoxyCodeLine{00547\ \ \ \ \ \textcolor{keyword}{delete}[]\ playing\_field;}
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{keyword}{delete}[]\ last\_playing\_field;}
+\DoxyCodeLine{00549\ \}}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
