@@ -1,0 +1,230 @@
+\doxysection{Tetris Class Reference}
+\hypertarget{class_tetris}{}\label{class_tetris}\index{Tetris@{Tetris}}
+
+
+{\ttfamily \#include $<$tetris.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\+\_\+types}} \{ \newline
+\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689a1c4c9fdae8071f6b7a35a6b138569e31}{tet\+\_\+square}}
+, \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ade2db103e14ce770ff022d0d0b3418bb}{tet\+\_\+l}}
+, \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ad73e7f17cef9b77f0db2283cdd3beaea}{tet\+\_\+s}}
+, \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689aa371eb3876d7732ea11673edbbfd9821}{tet\+\_\+bar}}
+, \newline
+\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689afa3daa2be4ee8fcacd5c548127ceefd6}{tet\+\_\+t}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_tetris_a2d231c022a51aadad9b3c41fa7c558f9}{Rotate}} ()
+\begin{DoxyCompactList}\small\item\em Well it rotates the piece if it can But even i dont know what is the fucking origin with respect to it is rotating. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tetris_a0216a055ecb3568412c35fc78e52bf14}{Tetris}} ()
+\item 
+void \mbox{\hyperlink{class_tetris_a311943597585d781a6f7dc5c3d5b3cee}{Game\+Loop}} (void)
+\begin{DoxyCompactList}\small\item\em Main Game loop of function which hadles all the game loginc and GUI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}{Display\+\_\+\+Field}} (void)
+\begin{DoxyCompactList}\small\item\em Displays the playing field and next \doxylink{class_tetramino}{Tetramino}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tetris_ab2e4ada486ea700831eead2c078faa06}{spawn}} (int posX, int posY, \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\+\_\+types}} t)
+\begin{DoxyCompactList}\small\item\em well it was supposedly made to change color but hey sometimes thing dont work according to you so don\textquotesingle{}t use it, i will update if its ready \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}{Move}} (int x, int y, bool randomize)
+\begin{DoxyCompactList}\small\item\em Moves the last\+\_\+spawn to given location. \end{DoxyCompactList}\item 
+vector$<$ char $>$ \mbox{\hyperlink{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}{Check\+Row}} (void)
+\begin{DoxyCompactList}\small\item\em Check if a row is compelete and gives points and move all other rows down after erasing it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_tetris_ae35c3244db72ef10b9e34efd0f5d2ea5}{Is\+Running}} (void)
+\item 
+\mbox{\hyperlink{class_tetris_a83428bf8cd94dc29673d5f0160718818}{\texorpdfstring{$\sim$}{\string~}\+Tetris}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tetris_a5f228522c2d7376d2d3cc9e23b6482be}{Get\+Input}} (void \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Handles the Key Presses , works on a separate thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_tetris_af57251dffe8ade668a403c6408ab42f9}{current\+\_\+\+Score}} = 0
+\item 
+int \mbox{\hyperlink{class_tetris_afedb9b35b91854b6e1b1420d90f1b3b2}{rowscore}} = 10
+\item 
+int \mbox{\hyperlink{class_tetris_a62b1bd3783726a3c30247f51e693608e}{multiplier}} = 2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{class_tetris_a2af386e6902e53e0a0d8718167266c63}{size\+\_\+tet\+\_\+types}} = 5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}\label{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689} 
+\index{Tetris@{Tetris}!tet\_types@{tet\_types}}
+\index{tet\_types@{tet\_types}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{tet\_types}{tet\_types}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{Tetris\+::tet\+\_\+types}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tet\_square@{tet\_square}!Tetris@{Tetris}}\index{Tetris@{Tetris}!tet\_square@{tet\_square}}}\Hypertarget{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689a1c4c9fdae8071f6b7a35a6b138569e31}\label{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689a1c4c9fdae8071f6b7a35a6b138569e31} 
+tet\+\_\+square&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tet\_l@{tet\_l}!Tetris@{Tetris}}\index{Tetris@{Tetris}!tet\_l@{tet\_l}}}\Hypertarget{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ade2db103e14ce770ff022d0d0b3418bb}\label{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ade2db103e14ce770ff022d0d0b3418bb} 
+tet\+\_\+l&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tet\_s@{tet\_s}!Tetris@{Tetris}}\index{Tetris@{Tetris}!tet\_s@{tet\_s}}}\Hypertarget{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ad73e7f17cef9b77f0db2283cdd3beaea}\label{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689ad73e7f17cef9b77f0db2283cdd3beaea} 
+tet\+\_\+s&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tet\_bar@{tet\_bar}!Tetris@{Tetris}}\index{Tetris@{Tetris}!tet\_bar@{tet\_bar}}}\Hypertarget{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689aa371eb3876d7732ea11673edbbfd9821}\label{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689aa371eb3876d7732ea11673edbbfd9821} 
+tet\+\_\+bar&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tet\_t@{tet\_t}!Tetris@{Tetris}}\index{Tetris@{Tetris}!tet\_t@{tet\_t}}}\Hypertarget{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689afa3daa2be4ee8fcacd5c548127ceefd6}\label{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689afa3daa2be4ee8fcacd5c548127ceefd6} 
+tet\+\_\+t&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tetris_a0216a055ecb3568412c35fc78e52bf14}\label{class_tetris_a0216a055ecb3568412c35fc78e52bf14} 
+\index{Tetris@{Tetris}!Tetris@{Tetris}}
+\index{Tetris@{Tetris}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{Tetris()}{Tetris()}}
+{\footnotesize\ttfamily Tetris\+::\+Tetris (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_tetris_a83428bf8cd94dc29673d5f0160718818}\label{class_tetris_a83428bf8cd94dc29673d5f0160718818} 
+\index{Tetris@{Tetris}!````~Tetris@{\texorpdfstring{$\sim$}{\string~}Tetris}}
+\index{````~Tetris@{\texorpdfstring{$\sim$}{\string~}Tetris}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Tetris()}{\string~Tetris()}}
+{\footnotesize\ttfamily Tetris\+::\texorpdfstring{$\sim$}{\string~}\+Tetris (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b}\label{class_tetris_ac37ede4f94d0a1109b3aa5d3990a138b} 
+\index{Tetris@{Tetris}!CheckRow@{CheckRow}}
+\index{CheckRow@{CheckRow}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{CheckRow()}{CheckRow()}}
+{\footnotesize\ttfamily vector$<$ char $>$ Tetris\+::\+Check\+Row (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check if a row is compelete and gives points and move all other rows down after erasing it. 
+
+\begin{DoxyReturn}{Returns}
+row numbers that were full 
+\end{DoxyReturn}
+\Hypertarget{class_tetris_a450fddc9532057c2e5686fbc7ab509b9}\label{class_tetris_a450fddc9532057c2e5686fbc7ab509b9} 
+\index{Tetris@{Tetris}!Display\_Field@{Display\_Field}}
+\index{Display\_Field@{Display\_Field}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{Display\_Field()}{Display\_Field()}}
+{\footnotesize\ttfamily void Tetris\+::\+Display\+\_\+\+Field (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Displays the playing field and next \doxylink{class_tetramino}{Tetramino}. 
+
+\Hypertarget{class_tetris_a311943597585d781a6f7dc5c3d5b3cee}\label{class_tetris_a311943597585d781a6f7dc5c3d5b3cee} 
+\index{Tetris@{Tetris}!GameLoop@{GameLoop}}
+\index{GameLoop@{GameLoop}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{GameLoop()}{GameLoop()}}
+{\footnotesize\ttfamily void Tetris\+::\+Game\+Loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main Game loop of function which hadles all the game loginc and GUI. 
+
+\Hypertarget{class_tetris_a5f228522c2d7376d2d3cc9e23b6482be}\label{class_tetris_a5f228522c2d7376d2d3cc9e23b6482be} 
+\index{Tetris@{Tetris}!GetInput@{GetInput}}
+\index{GetInput@{GetInput}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{GetInput()}{GetInput()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Tetris\+::\+Get\+Input (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Handles the Key Presses , works on a separate thread. 
+
+\Hypertarget{class_tetris_ae35c3244db72ef10b9e34efd0f5d2ea5}\label{class_tetris_ae35c3244db72ef10b9e34efd0f5d2ea5} 
+\index{Tetris@{Tetris}!IsRunning@{IsRunning}}
+\index{IsRunning@{IsRunning}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{IsRunning()}{IsRunning()}}
+{\footnotesize\ttfamily bool Tetris\+::\+Is\+Running (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tetris_a81e13e7210ec7a75ba74b990eda2046e}\label{class_tetris_a81e13e7210ec7a75ba74b990eda2046e} 
+\index{Tetris@{Tetris}!Move@{Move}}
+\index{Move@{Move}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily void Tetris\+::\+Move (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{bool}]{randomize }\end{DoxyParamCaption})}
+
+
+
+Moves the last\+\_\+spawn to given location. 
+
+\Hypertarget{class_tetris_a2d231c022a51aadad9b3c41fa7c558f9}\label{class_tetris_a2d231c022a51aadad9b3c41fa7c558f9} 
+\index{Tetris@{Tetris}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}}
+{\footnotesize\ttfamily void Tetris\+::\+Rotate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Well it rotates the piece if it can But even i dont know what is the fucking origin with respect to it is rotating. 
+
+\Hypertarget{class_tetris_ab2e4ada486ea700831eead2c078faa06}\label{class_tetris_ab2e4ada486ea700831eead2c078faa06} 
+\index{Tetris@{Tetris}!spawn@{spawn}}
+\index{spawn@{spawn}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{spawn()}{spawn()}}
+{\footnotesize\ttfamily void Tetris\+::spawn (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY,  }\item[{\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\+\_\+types}}}]{t }\end{DoxyParamCaption})}
+
+
+
+well it was supposedly made to change color but hey sometimes thing dont work according to you so don\textquotesingle{}t use it, i will update if its ready 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & color to set ; type in console \{color /?\} without brackets of course the integer corresponds to the foregound colors\\
+\hline
+\end{DoxyParams}
+Spawns the given tetramino at the given position; if it cant spawn it sets last\+\_\+spawn to null 
+\begin{DoxyParams}{Parameters}
+{\em posX,posY} & position to spawn on \\
+\hline
+{\em t} & type of tetramino \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_tetris_af57251dffe8ade668a403c6408ab42f9}\label{class_tetris_af57251dffe8ade668a403c6408ab42f9} 
+\index{Tetris@{Tetris}!current\_Score@{current\_Score}}
+\index{current\_Score@{current\_Score}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{current\_Score}{current\_Score}}
+{\footnotesize\ttfamily int Tetris\+::current\+\_\+\+Score = 0}
+
+\Hypertarget{class_tetris_a62b1bd3783726a3c30247f51e693608e}\label{class_tetris_a62b1bd3783726a3c30247f51e693608e} 
+\index{Tetris@{Tetris}!multiplier@{multiplier}}
+\index{multiplier@{multiplier}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{multiplier}{multiplier}}
+{\footnotesize\ttfamily int Tetris\+::multiplier = 2}
+
+\Hypertarget{class_tetris_afedb9b35b91854b6e1b1420d90f1b3b2}\label{class_tetris_afedb9b35b91854b6e1b1420d90f1b3b2} 
+\index{Tetris@{Tetris}!rowscore@{rowscore}}
+\index{rowscore@{rowscore}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{rowscore}{rowscore}}
+{\footnotesize\ttfamily int Tetris\+::rowscore = 10}
+
+\Hypertarget{class_tetris_a2af386e6902e53e0a0d8718167266c63}\label{class_tetris_a2af386e6902e53e0a0d8718167266c63} 
+\index{Tetris@{Tetris}!size\_tet\_types@{size\_tet\_types}}
+\index{size\_tet\_types@{size\_tet\_types}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{size\_tet\_types}{size\_tet\_types}}
+{\footnotesize\ttfamily const int Tetris\+::size\+\_\+tet\+\_\+types = 5\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{tetris_8hpp}{tetris.\+hpp}}\end{DoxyCompactItemize}

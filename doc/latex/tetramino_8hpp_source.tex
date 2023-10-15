@@ -1,0 +1,39 @@
+\doxysection{tetramino.\+hpp}
+\hypertarget{tetramino_8hpp_source}{}\label{tetramino_8hpp_source}\index{include/tetramino.hpp@{include/tetramino.hpp}}
+\mbox{\hyperlink{tetramino_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_TETRAMINO\_HPP\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_TETRAMINO\_HPP\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tetramino}{Tetramino}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_height;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_width;}
+\DoxyCodeLine{00010\ \ \ \ \ vector<vector<int>>\ m\_piece;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ \ m\_tblocks\ =\ 0;}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_tetramino}{Tetramino}}*\ m\_nextpiece\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ ComputeNextRotation(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetramino_acb5aaf031e33755dcec48810a0de3a02}{SetVars}}(\textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{char}*\ arr);}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_tetramino_af6fcccc8d7845b1bf0ff8f8f4ecfd979}{Tetramino}}(\textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{char}*\ arr);}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_tetramino_a7778afd24ff2086ae100f2e6c64950c3}{Tetramino}}()\ \{\};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tetramino_ae2e5046b0871330f5c27f7389c5ba247}{GetWidth}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ m\_width;\ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}{GetHeight}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ m\_height;\ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{/*vector<int>\ Getskirt(void)\ \{\ return\ m\_skirt;\ \}*/}}
+\DoxyCodeLine{00023\ \ \ \ \ vector<vector<int>>\ \mbox{\hyperlink{class_tetramino_ae09e94695247393ee10108af3cfaced1}{GetPiece}}(\textcolor{keywordtype}{void})\ \{\ \textcolor{keywordflow}{return}\ m\_piece;\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tetramino_ad7fc5e3d77f9b0d7ead13b1946b351fb}{SetNextPiece}}(\mbox{\hyperlink{class_tetramino}{Tetramino}}*\ t)\ \{\ this-\/>m\_nextpiece\ =\ t;\ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_tetramino}{Tetramino}}*\ \mbox{\hyperlink{class_tetramino_a7062f2d01fe719d9e723010fd002606b}{GetRotatedPiece}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ bool\ operator==(Tetramino\&\ t);}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_tetramino_acefbb9c4030428c1d9ab2a3598a6dc7d}{\string~Tetramino}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

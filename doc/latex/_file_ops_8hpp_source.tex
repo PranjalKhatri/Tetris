@@ -1,0 +1,32 @@
+\doxysection{File\+Ops.\+hpp}
+\hypertarget{_file_ops_8hpp_source}{}\label{_file_ops_8hpp_source}\index{include/FileOps.hpp@{include/FileOps.hpp}}
+\mbox{\hyperlink{_file_ops_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_FILEOPS\_HPP\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_FILEOPS\_HPP\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_file_ops}{FileOps}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ std::string\ f\_name;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_file_ops}{FileOps}}(std::string\ name);}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_file_ops_a282f0612c8e236ddedfcf9ecae3a4e8b}{\string~FileOps}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_ops_aef7851539a35379d967f6721a95ac609}{Write}}(std::string\ message);}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \mbox{\hyperlink{class_file_ops_ac5d0da3d655c0310b66551d1c1d8298f}{FileOps::FileOps}}(std::string\ name)}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ f\_name\ =\ name;}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_ops_aef7851539a35379d967f6721a95ac609}{FileOps::Write}}(std::string\ message)}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ std::fstream\ f(f\_name,\ std::ios\_base::app\ |\ std::ios\_base::in);}
+\DoxyCodeLine{00023\ \ \ \ \ f\ <<\ message;}
+\DoxyCodeLine{00024\ \ \ \ \ f.close();}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

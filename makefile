@@ -1,4 +1,4 @@
-any: main.o utils.o tetramino.o .\src\main.cpp .\lib\utils.cpp .\lib\tetramino.cpp
+any: main.o utils.o tetramino.o .\src\main.cpp .\lib\tetramino.cpp .\lib\utils.cpp 
 	g++ -lpthread -pthread -o .\bin\Tetris main.o tetramino.o utils.o
 
 main.o : .\src\main.cpp

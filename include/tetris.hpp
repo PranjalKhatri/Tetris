@@ -1,5 +1,5 @@
-#ifndef _TETRIS_HPP_
-#define _TETRIS_HPP_
+#ifndef __TETRIS_HPP_
+#define __TETRIS_HPP_
 
 #pragma region include_directives
 #include ".\tetramino.hpp"
@@ -28,7 +28,7 @@
 #pragma endregion
 class Tetris
 {
-    #pragma region Variables
+#pragma region Variables
 public:
     //Add any tetramino you define to this enum and increment size_tet_types, Plus define the tetramino inside inittetramino dunction, define them in tets_array
     enum tet_types {
@@ -41,6 +41,9 @@ public:
         //tet_rand
     };
     static const int size_tet_types = 5;
+    int current_Score = 0;
+    int rowscore = 10;
+    int multiplier = 2;
 private:
     //Classic Tetris dimensions
     const int SCREENWIDTH = 12;
@@ -71,31 +74,47 @@ private:
 
 private:
 
+    /// @brief Checks if the given Tetramino fits at the given position in the playing field
+    /// @param t Tetramino to check
+    /// @param PosX,PosY origin of Tetramino on board 
+    /// @return true if it fits and false if it dont
     bool DoesPieceFit(Tetramino t, int PosX, int PosY);
+    
+    /// @brief initialize all your tetraminos here
     void InitTetraminos(void);
     void setcolor(int color);
 
 public:
-
-    int current_Score = 0;
-    int rowscore = 10;
-    int multiplier = 2;
-
+    /// @brief Well it rotates the piece if it can But even i dont know what is the fucking origin with respect to it is rotating 
+    void Rotate();
+    
     Tetris();
+
+    /// @brief Main Game loop of function which hadles all the game loginc and GUI
     void GameLoop(void);
+
+    /// @brief Displays the playing field and next Tetramino
     void Display_Field(void);
+
+    /// @brief Spawns the given tetramino at the given position; if it cant spawn it sets last_spawn to null
+    /// @param posX,posY position to spawn on
+    /// @param t type of tetramino
     void spawn(int posX, int posY, tet_types t);
-    void Move(int x, int y, bool can_terminate = true);
+
+    /// @brief Moves the last_spawn to given location
+    void Move(int x, int y, bool randomize);
+
+    /// @brief Check if a row is compelete and gives points and move all other rows down after erasing it
+    /// @return row numbers that were full
     vector<char> CheckRow(void);
+
+    /// @brief Handles the Key Presses , works on a separate thread
     static void* GetInput(void*);
+
     bool IsRunning(void) { return m_isrunning; }
     ~Tetris();
 };
 
-/// @brief Checks if the given Tetramino fits at the given position in the playing field
-/// @param t Tetramino to check
-/// @param PosX,PosY origin of Tetramino on board 
-/// @return true if it fits and false if it dont
 bool Tetris::DoesPieceFit(Tetramino t, int PosX, int PosY)
 {
     vector<vector<int>> arr = t.GetPiece();
@@ -131,13 +150,12 @@ Tetris::Tetris()
             last_playing_field[y * SCREENWIDTH + x] = (x == 0 || x == SCREENWIDTH - 1 || y == 0 || y == SCREENHEIGHT - 1) ? '#' : ' ';
         }
     }
-            playing_field[(int(SCREENHEIGHT/2)-1)*SCREENWIDTH] = ' ';
-            playing_field[(int(SCREENHEIGHT/2))*SCREENWIDTH] = ' ';
-            playing_field[(int(SCREENHEIGHT/2)+1)*SCREENWIDTH] = ' ';
+    playing_field[(int(SCREENHEIGHT / 2) - 1) * SCREENWIDTH] = ' ';
+    playing_field[(int(SCREENHEIGHT / 2)) * SCREENWIDTH] = ' ';
+    playing_field[(int(SCREENHEIGHT / 2) + 1) * SCREENWIDTH] = ' ';
     InitTetraminos();
 }
 
-/// @brief Main Game loop of function which hadles all the game loginc and GUI
 void Tetris::GameLoop()
 {
     while (m_isrunning) {
@@ -150,22 +168,53 @@ void Tetris::GameLoop()
 
 
         if (last_spawn != nullptr) {
-            Move(px, py);
+            if (px != 0) {
+                int i = 0;
+                if (px > 0) {
+                    for (i = px; i >= 0; i--)
+                    {
+                        if (DoesPieceFit((*last_spawn), (last_posX + i), (last_posY + py))) {
+                            break;
+                        }
+                    }
+                }
+                else {
+                    for (i = px; i <= 0; i++)
+                    {
+                        if (DoesPieceFit((*last_spawn), (last_posX + i), (last_posY + py))) {
+                            break;
+                        }
+                    }
+
+                }
+                std::cout << "fit at px : " << i << endl;
+                px = i;
+            }
+            if (DoesPieceFit((*last_spawn), (last_posX + px), (last_posY + py)))
+            {
+                Move(px, py, false);
+            }
+            else
+            {
+                Move(px, py, true);
+            }
         }
         else {
-            spawn(8, 3, tet_bar);
+            spawn(8, 3, next_spawn);
         }
-        cout << "x " << px << " y" << py << endl;
-        cout<<CheckRow().size();
+        std::cout << "x " << px << " y" << -py << endl;
+
+        //Handles the score
+        std::cout << CheckRow().size();
         int s = CheckRow().size();
-        current_Score += rowscore*s;
         s--;
-        while (s>0)
+        current_Score += rowscore * s;
+        while (s > 0)
         {
-            current_Score += rowscore*multiplier;
+            current_Score += rowscore * multiplier;
             s--;
         }
-        
+
         //output
         Sleep(500);
         system("cls");
@@ -174,60 +223,60 @@ void Tetris::GameLoop()
 
     }
     // CheckRow();
-    cout << "YOU LOSE\n";
-    cout<<"\t\tYOUR TOTAL SCORE WAS "<<current_Score<<endl;
+    std::cout << "YOU LOSE\n";
+    std::cout << "\t\tYOUR TOTAL SCORE WAS " << current_Score << endl;
     system("color 04");
 }
 
-/// @brief Displays the playing field and next Tetramino
 void Tetris::Display_Field()
 {
     // playing_field[9*SCREENWIDTH+1] = '#';
     // playing_field[9*SCREENWIDTH+2] = '#';
-    cout << "Next Tetramino : ";
+    std::cout << "Next Tetramino : ";
     switch (next_spawn)
     {
     case 0:
-        cout << "Square";
+        std::cout << "Square";
         break;
 
     case 1:
-        cout << "L";
+        std::cout << "L";
         break;
 
     case 2:
-        cout << "S";
+        std::cout << "S";
         break;
 
     case 3:
-        cout << "Straight";
+        std::cout << "Straight";
         break;
     case 4:
-        cout << "T";
+        std::cout << "T";
         break;
 
     default:
         break;
     }
-    cout << endl;
+    std::cout << endl;
     for (int i = 0; i < SCREENWIDTH; i++)
     {
         for (int j = 0; j < SCREENHEIGHT; j++)
         {
-            // cout<<(j*SCREENWIDTH +i)<<" ";
-            cout << playing_field[j * SCREENWIDTH + i];
+            // std::cout<<(j*SCREENWIDTH +i)<<" ";
+            std::cout << playing_field[j * SCREENWIDTH + i];
             // Sleep(1);
         }
-        cout << endl;
+        std::cout << endl;
     }
 
 }
 
-/// @brief Moves the last_spawn to given location
-void Tetris::Move(int x, int y, bool can_terminate) {
+void Tetris::Move(int x, int y, bool randomize) {
+    //get the piece array of last spawn
     vector<vector<int>> arr = last_spawn->GetPiece();
-    if (DoesPieceFit((*last_spawn), (last_posX - x), (last_posY + y))) {
-        // cout<<"pop"<<last_spawn->GetPiece()[0][0]<<" pop";
+    //check if it fits
+    if (randomize == false) {
+        // std::cout<<"pop"<<last_spawn->GetPiece()[0][0]<<" pop";
         for (int i = 0; i < last_spawn->GetWidth(); i++)
         {
             for (int j = 0; j < last_spawn->GetHeight(); j++)
@@ -248,28 +297,25 @@ void Tetris::Move(int x, int y, bool can_terminate) {
         last_posY += y;
     }
     else {
-        if (can_terminate)
-        { //Chage the letters
-            for (int i = 0; i < last_spawn->GetWidth(); i++)
+        //Chage the letters
+        for (int i = 0; i < last_spawn->GetWidth(); i++)
+        {
+            for (int j = 0; j < last_spawn->GetHeight(); j++)
             {
-                for (int j = 0; j < last_spawn->GetHeight(); j++)
-                {
-                    if ((arr[j][i] == 1) && (playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] == '0')) {
+                if ((arr[j][i] == 1) && (playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] == '0')) {
 
-                        playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = "ABCD"[random.GetRandomNumber(4)];
+                    playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = "ABCD"[random.GetRandomNumber(4)];
 
-                        last_playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = 'G';
-                    }
+                    last_playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = 'G';
                 }
             }
-
-            last_spawn = nullptr;
         }
+
+        last_spawn = nullptr;
+
     }
 }
 
-/// @brief Check if a row is compelete and gives points and move all other rows down after erasing it
-/// @return row numbers that were full
 vector<char> Tetris::CheckRow()
 {
     vector<char> rowsnums;
@@ -282,7 +328,7 @@ vector<char> Tetris::CheckRow()
             }
             else {
                 if (j == (SCREENHEIGHT - 1)) {
-                    // cout << "   " << i << "   " << endl;
+                    // std::cout << "   " << i << "   " << endl;
                     // Sleep(10);
                     rowsnums.push_back(i);
                 }
@@ -319,7 +365,6 @@ vector<char> Tetris::CheckRow()
     // last_playing_field = playing_field;
 }
 
-/// @brief Handles the Key Presses , works on a separate thread
 void* Tetris::GetInput(void* obj)
 {
     Tetris* t = (Tetris*)obj;
@@ -333,26 +378,26 @@ void* Tetris::GetInput(void* obj)
         else if (GetKeyState('D') & 0x8000) {
             a = 1;
         }
-        // else if (GetKeyState('Q') & 0x8000) {
-        //     a = -2;
-        // }
-        // else if (GetKeyState('E') & 0x8000) {
-        //     a = 2;
-        // }
+        else if (GetKeyState('Q') & 0x8000) {
+            a = -2;
+        }
+        else if (GetKeyState('E') & 0x8000) {
+            a = 2;
+        }
         else {
             a = 0;
             // b = 1;
         }
-        // if(GetKeyState('S') & 0x8000){
-        //     b = 2;
-        // }
+        if (GetKeyState('Z') & 0x8000) {
+            t->Rotate();
+        }
         t->px = a;
-        Sleep(200);
+        Sleep(100);
         // t->py = b;
     }
 }
 
-/// @brief initialize all your tetraminos here
+
 void Tetris::InitTetraminos() {
     //23 345
     //01 012
@@ -370,56 +415,54 @@ void Tetris::InitTetraminos() {
 
 /// @brief well it was supposedly made to change color but hey sometimes thing dont work according to you so don't use it, i will update if its ready
 /// @param color color to set ; type in console {color /?} without brackets of course the integer corresponds to the foregound colors
-void Tetris::setcolor(int color)
-{
-    switch (color)
-    {
-    case 1:
-        system("color 01");
-        break;
+/* void Tetris::setcolor(int color)
+// {
+//     switch (color)
+//     {
+//     case 1:
+//         system("color 01");
+//         break;
 
-    case 2:
-        system("color 02");
-        break;
+//     case 2:
+//         system("color 02");
+//         break;
 
-    case 3:
-        system("color 03");
-        break;
+//     case 3:
+//         system("color 03");
+//         break;
 
-    case 4:
-        system("color 04");
-        break;
+//     case 4:
+//         system("color 04");
+//         break;
 
-    case 5:
-        system("color 05");
-        break;
+//     case 5:
+//         system("color 05");
+//         break;
 
-    case 6:
-        system("color 06");
-        break;
+//     case 6:
+//         system("color 06");
+//         break;
 
-    case 7:
-        system("color 07");
-        break;
+//     case 7:
+//         system("color 07");
+//         break;
 
-    case 8:
-        system("color 08");
-        break;
+//     case 8:
+//         system("color 08");
+//         break;
 
-    case 9:
-        system("color 09");
-        break;
+//     case 9:
+//         system("color 09");
+//         break;
 
-    default:
-        break;
-    }
-    // string color = "color 0"+to_string(2);
-    system("color 02");
-}
+//     default:
+//         break;
+//     }
+//     // string color = "color 0"+to_string(2);
+//     system("color 02");
+// }
+*/
 
-/// @brief Spawns the given tetramino at the given position; if it cant spawn it sets last_spawn to null
-/// @param posX,posY position to spawn on
-/// @param t type of tetramino
 void Tetris::spawn(int posX, int posY, tet_types t)
 {
     int rd;
@@ -440,7 +483,7 @@ void Tetris::spawn(int posX, int posY, tet_types t)
                 //i+posy denotes column , 
                 if (sparr[j][i] == 1) {
 
-                    // cout << " filled" << ((j + posX) * SCREENWIDTH) - i + posY << "\n";
+                    // std::cout << " filled" << ((j + posX) * SCREENWIDTH) - i + posY << "\n";
                     playing_field[((j + posX) * SCREENWIDTH) - i + posY] = '0';
 
                 }
@@ -457,6 +500,38 @@ void Tetris::spawn(int posX, int posY, tet_types t)
     }
     //change last state to current but after movement
     // last_playing_field = playing_field;
+}
+
+void Tetris::Rotate() {
+    if (DoesPieceFit(*(last_spawn->GetRotatedPiece()), last_posX, last_posY)) {
+        for (int i = 0; i < SCREENWIDTH; i++)
+        {
+            for (int j = 0; j < SCREENHEIGHT; j++)
+            {
+                if (playing_field[j * SCREENWIDTH + i] == '0')
+                    playing_field[j * SCREENWIDTH + i] = ' ';
+            }
+
+        }
+
+        last_spawn = last_spawn->GetRotatedPiece();
+        // std::cout<<"last spawn h"<<last_spawn->GetHeight()<<" w"<<last_spawn->GetWidth()<<endl;
+        vector<vector<int>> arr = last_spawn->GetPiece();
+        for (int i = 0; i < last_spawn->GetWidth(); i++)
+        {
+            for (int j = 0; j < last_spawn->GetHeight(); j++)
+            {
+                if ((arr[j][i] == 1) && (playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] == ' ')) {
+
+                    // playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = "ABCD"[random.GetRandomNumber(4)];
+                    playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = '0';
+                    // last_playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = 'G';
+                }
+            }
+        }
+
+
+    }
 }
 
 Tetris::~Tetris()
