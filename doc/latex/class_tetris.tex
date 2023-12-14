@@ -56,6 +56,48 @@ int \mbox{\hyperlink{class_tetris_a62b1bd3783726a3c30247f51e693608e}{multiplier}
 \item 
 static const int \mbox{\hyperlink{class_tetris_a2af386e6902e53e0a0d8718167266c63}{size\+\_\+tet\+\_\+types}} = 5
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_tetris_ae4f27ecaf13873e39ca9a70eb74b5949}{Does\+Piece\+Fit}} (\mbox{\hyperlink{class_tetramino}{Tetramino}} t, int PosX, int PosY)
+\begin{DoxyCompactList}\small\item\em Checks if the given \doxylink{class_tetramino}{Tetramino} fits at the given position in the playing field. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tetris_ab3aad2f10974de1d28167b4396b179ac}{Init\+Tetraminos}} (void)
+\begin{DoxyCompactList}\small\item\em initialize all your tetraminos here \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tetris_a88209f7008dd2dc49792a75121558551}{setcolor}} (int color)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_tetris_a23c2062e5d8859f48544d6eb8b8a83ac}{is\+\_\+rotated}} = false
+\item 
+const int \mbox{\hyperlink{class_tetris_ad6304e05507555b058192ee7ff2439f4}{SCREENWIDTH}} = 12
+\item 
+const int \mbox{\hyperlink{class_tetris_a0e0124f2abc083e9fb28bce0b217a9bd}{SCREENHEIGHT}} = 18
+\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tetris_a8a55a5e2af1b8b7f66f352b34917681e}{playing\+\_\+field}}
+\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tetris_a03a7379a5a27bb1368349fa46c36af86}{last\+\_\+playing\+\_\+field}}
+\item 
+bool \mbox{\hyperlink{class_tetris_a8f387430f568cabb854af4fd22fbd7c2}{m\+\_\+isrunning}} = true
+\item 
+bool \mbox{\hyperlink{class_tetris_a17a70343e6498fa188130fdcf910f506}{can\+\_\+godown}} = true
+\item 
+\mbox{\hyperlink{class_random}{Random}} \mbox{\hyperlink{class_tetris_a271ad148780db3359c57df4f187297d3}{random}}
+\item 
+\mbox{\hyperlink{class_tetramino}{Tetramino}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tetris_a6087f4e2f11efa5aa5d3ca238c125e6f}{last\+\_\+spawn}} = nullptr
+\item 
+\mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\+\_\+types}} \mbox{\hyperlink{class_tetris_a7bd82f089ca618bdbb6d389b318ed042}{next\+\_\+spawn}}
+\item 
+int \mbox{\hyperlink{class_tetris_a95b81ac5a75a603ce9f35bc44ad5eab0}{last\+\_\+posX}} = 0
+\item 
+int \mbox{\hyperlink{class_tetris_a387e746df0ef81a805af914e94875b8a}{last\+\_\+posY}} = 0
+\item 
+\mbox{\hyperlink{class_tetramino}{Tetramino}} \mbox{\hyperlink{class_tetris_aea6bdb1f4d97fd5f1b1a48a6698c2522}{tets}} \mbox{[}\mbox{\hyperlink{class_tetris_a2af386e6902e53e0a0d8718167266c63}{size\+\_\+tet\+\_\+types}}\mbox{]}
+\item 
+int \mbox{\hyperlink{class_tetris_a97526f5cc8c6f0a12edd31b26310b811}{px}} = 0
+\item 
+int \mbox{\hyperlink{class_tetris_a5d8a5eec6ca86867891e88d7edfc3763}{py}} = 1
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Enumeration Documentation}
@@ -128,7 +170,27 @@ row numbers that were full
 
 Displays the playing field and next \doxylink{class_tetramino}{Tetramino}. 
 
-\Hypertarget{class_tetris_a311943597585d781a6f7dc5c3d5b3cee}\label{class_tetris_a311943597585d781a6f7dc5c3d5b3cee} 
+\Hypertarget{class_tetris_ae4f27ecaf13873e39ca9a70eb74b5949}\label{class_tetris_ae4f27ecaf13873e39ca9a70eb74b5949} 
+\index{Tetris@{Tetris}!DoesPieceFit@{DoesPieceFit}}
+\index{DoesPieceFit@{DoesPieceFit}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{DoesPieceFit()}{DoesPieceFit()}}
+{\footnotesize\ttfamily bool Tetris\+::\+Does\+Piece\+Fit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tetramino}{Tetramino}}}]{t,  }\item[{int}]{PosX,  }\item[{int}]{PosY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if the given \doxylink{class_tetramino}{Tetramino} fits at the given position in the playing field. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \doxylink{class_tetramino}{Tetramino} to check \\
+\hline
+{\em PosX,PosY} & origin of \doxylink{class_tetramino}{Tetramino} on board \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it fits and false if it dont
+\end{DoxyReturn}
+a piece fits on board whenever its piece array have a 1 on its position and our playing field has an empty block at tha position \Hypertarget{class_tetris_a311943597585d781a6f7dc5c3d5b3cee}\label{class_tetris_a311943597585d781a6f7dc5c3d5b3cee} 
 \index{Tetris@{Tetris}!GameLoop@{GameLoop}}
 \index{GameLoop@{GameLoop}!Tetris@{Tetris}}
 \doxysubsubsection{\texorpdfstring{GameLoop()}{GameLoop()}}
@@ -147,6 +209,16 @@ Main Game loop of function which hadles all the game loginc and GUI.
 
 
 Handles the Key Presses , works on a separate thread. 
+
+\Hypertarget{class_tetris_ab3aad2f10974de1d28167b4396b179ac}\label{class_tetris_ab3aad2f10974de1d28167b4396b179ac} 
+\index{Tetris@{Tetris}!InitTetraminos@{InitTetraminos}}
+\index{InitTetraminos@{InitTetraminos}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{InitTetraminos()}{InitTetraminos()}}
+{\footnotesize\ttfamily void Tetris\+::\+Init\+Tetraminos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initialize all your tetraminos here 
 
 \Hypertarget{class_tetris_ae35c3244db72ef10b9e34efd0f5d2ea5}\label{class_tetris_ae35c3244db72ef10b9e34efd0f5d2ea5} 
 \index{Tetris@{Tetris}!IsRunning@{IsRunning}}
@@ -174,6 +246,12 @@ Moves the last\+\_\+spawn to given location.
 
 Well it rotates the piece if it can But even i dont know what is the fucking origin with respect to it is rotating. 
 
+\Hypertarget{class_tetris_a88209f7008dd2dc49792a75121558551}\label{class_tetris_a88209f7008dd2dc49792a75121558551} 
+\index{Tetris@{Tetris}!setcolor@{setcolor}}
+\index{setcolor@{setcolor}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{setcolor()}{setcolor()}}
+{\footnotesize\ttfamily void Tetris\+::setcolor (\begin{DoxyParamCaption}\item[{int}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{class_tetris_ab2e4ada486ea700831eead2c078faa06}\label{class_tetris_ab2e4ada486ea700831eead2c078faa06} 
 \index{Tetris@{Tetris}!spawn@{spawn}}
 \index{spawn@{spawn}!Tetris@{Tetris}}
@@ -198,11 +276,53 @@ well it was supposedly made to change color but hey sometimes thing dont work ac
 
 
 \doxysubsection{Member Data Documentation}
+\Hypertarget{class_tetris_a17a70343e6498fa188130fdcf910f506}\label{class_tetris_a17a70343e6498fa188130fdcf910f506} 
+\index{Tetris@{Tetris}!can\_godown@{can\_godown}}
+\index{can\_godown@{can\_godown}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{can\_godown}{can\_godown}}
+{\footnotesize\ttfamily bool Tetris\+::can\+\_\+godown = true\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{class_tetris_af57251dffe8ade668a403c6408ab42f9}\label{class_tetris_af57251dffe8ade668a403c6408ab42f9} 
 \index{Tetris@{Tetris}!current\_Score@{current\_Score}}
 \index{current\_Score@{current\_Score}!Tetris@{Tetris}}
 \doxysubsubsection{\texorpdfstring{current\_Score}{current\_Score}}
 {\footnotesize\ttfamily int Tetris\+::current\+\_\+\+Score = 0}
+
+\Hypertarget{class_tetris_a23c2062e5d8859f48544d6eb8b8a83ac}\label{class_tetris_a23c2062e5d8859f48544d6eb8b8a83ac} 
+\index{Tetris@{Tetris}!is\_rotated@{is\_rotated}}
+\index{is\_rotated@{is\_rotated}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{is\_rotated}{is\_rotated}}
+{\footnotesize\ttfamily bool Tetris\+::is\+\_\+rotated = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_a03a7379a5a27bb1368349fa46c36af86}\label{class_tetris_a03a7379a5a27bb1368349fa46c36af86} 
+\index{Tetris@{Tetris}!last\_playing\_field@{last\_playing\_field}}
+\index{last\_playing\_field@{last\_playing\_field}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{last\_playing\_field}{last\_playing\_field}}
+{\footnotesize\ttfamily unsigned char\texorpdfstring{$\ast$}{*} Tetris\+::last\+\_\+playing\+\_\+field\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_a95b81ac5a75a603ce9f35bc44ad5eab0}\label{class_tetris_a95b81ac5a75a603ce9f35bc44ad5eab0} 
+\index{Tetris@{Tetris}!last\_posX@{last\_posX}}
+\index{last\_posX@{last\_posX}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{last\_posX}{last\_posX}}
+{\footnotesize\ttfamily int Tetris\+::last\+\_\+posX = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_a387e746df0ef81a805af914e94875b8a}\label{class_tetris_a387e746df0ef81a805af914e94875b8a} 
+\index{Tetris@{Tetris}!last\_posY@{last\_posY}}
+\index{last\_posY@{last\_posY}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{last\_posY}{last\_posY}}
+{\footnotesize\ttfamily int Tetris\+::last\+\_\+posY = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_a6087f4e2f11efa5aa5d3ca238c125e6f}\label{class_tetris_a6087f4e2f11efa5aa5d3ca238c125e6f} 
+\index{Tetris@{Tetris}!last\_spawn@{last\_spawn}}
+\index{last\_spawn@{last\_spawn}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{last\_spawn}{last\_spawn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tetramino}{Tetramino}}\texorpdfstring{$\ast$}{*} Tetris\+::last\+\_\+spawn = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_a8f387430f568cabb854af4fd22fbd7c2}\label{class_tetris_a8f387430f568cabb854af4fd22fbd7c2} 
+\index{Tetris@{Tetris}!m\_isrunning@{m\_isrunning}}
+\index{m\_isrunning@{m\_isrunning}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{m\_isrunning}{m\_isrunning}}
+{\footnotesize\ttfamily bool Tetris\+::m\+\_\+isrunning = true\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{class_tetris_a62b1bd3783726a3c30247f51e693608e}\label{class_tetris_a62b1bd3783726a3c30247f51e693608e} 
 \index{Tetris@{Tetris}!multiplier@{multiplier}}
@@ -210,11 +330,53 @@ well it was supposedly made to change color but hey sometimes thing dont work ac
 \doxysubsubsection{\texorpdfstring{multiplier}{multiplier}}
 {\footnotesize\ttfamily int Tetris\+::multiplier = 2}
 
+\Hypertarget{class_tetris_a7bd82f089ca618bdbb6d389b318ed042}\label{class_tetris_a7bd82f089ca618bdbb6d389b318ed042} 
+\index{Tetris@{Tetris}!next\_spawn@{next\_spawn}}
+\index{next\_spawn@{next\_spawn}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{next\_spawn}{next\_spawn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tetris_a2da8be2e5cb7e0bebdcdd31e21929689}{tet\+\_\+types}} Tetris\+::next\+\_\+spawn\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_a8a55a5e2af1b8b7f66f352b34917681e}\label{class_tetris_a8a55a5e2af1b8b7f66f352b34917681e} 
+\index{Tetris@{Tetris}!playing\_field@{playing\_field}}
+\index{playing\_field@{playing\_field}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{playing\_field}{playing\_field}}
+{\footnotesize\ttfamily unsigned char\texorpdfstring{$\ast$}{*} Tetris\+::playing\+\_\+field\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_a97526f5cc8c6f0a12edd31b26310b811}\label{class_tetris_a97526f5cc8c6f0a12edd31b26310b811} 
+\index{Tetris@{Tetris}!px@{px}}
+\index{px@{px}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{px}{px}}
+{\footnotesize\ttfamily int Tetris\+::px = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_a5d8a5eec6ca86867891e88d7edfc3763}\label{class_tetris_a5d8a5eec6ca86867891e88d7edfc3763} 
+\index{Tetris@{Tetris}!py@{py}}
+\index{py@{py}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{py}{py}}
+{\footnotesize\ttfamily int Tetris\+::py = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_a271ad148780db3359c57df4f187297d3}\label{class_tetris_a271ad148780db3359c57df4f187297d3} 
+\index{Tetris@{Tetris}!random@{random}}
+\index{random@{random}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{random}{random}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_random}{Random}} Tetris\+::random\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{class_tetris_afedb9b35b91854b6e1b1420d90f1b3b2}\label{class_tetris_afedb9b35b91854b6e1b1420d90f1b3b2} 
 \index{Tetris@{Tetris}!rowscore@{rowscore}}
 \index{rowscore@{rowscore}!Tetris@{Tetris}}
 \doxysubsubsection{\texorpdfstring{rowscore}{rowscore}}
 {\footnotesize\ttfamily int Tetris\+::rowscore = 10}
+
+\Hypertarget{class_tetris_a0e0124f2abc083e9fb28bce0b217a9bd}\label{class_tetris_a0e0124f2abc083e9fb28bce0b217a9bd} 
+\index{Tetris@{Tetris}!SCREENHEIGHT@{SCREENHEIGHT}}
+\index{SCREENHEIGHT@{SCREENHEIGHT}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{SCREENHEIGHT}{SCREENHEIGHT}}
+{\footnotesize\ttfamily const int Tetris\+::\+SCREENHEIGHT = 18\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetris_ad6304e05507555b058192ee7ff2439f4}\label{class_tetris_ad6304e05507555b058192ee7ff2439f4} 
+\index{Tetris@{Tetris}!SCREENWIDTH@{SCREENWIDTH}}
+\index{SCREENWIDTH@{SCREENWIDTH}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{SCREENWIDTH}{SCREENWIDTH}}
+{\footnotesize\ttfamily const int Tetris\+::\+SCREENWIDTH = 12\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{class_tetris_a2af386e6902e53e0a0d8718167266c63}\label{class_tetris_a2af386e6902e53e0a0d8718167266c63} 
 \index{Tetris@{Tetris}!size\_tet\_types@{size\_tet\_types}}
@@ -222,8 +384,14 @@ well it was supposedly made to change color but hey sometimes thing dont work ac
 \doxysubsubsection{\texorpdfstring{size\_tet\_types}{size\_tet\_types}}
 {\footnotesize\ttfamily const int Tetris\+::size\+\_\+tet\+\_\+types = 5\hspace{0.3cm}{\ttfamily [static]}}
 
+\Hypertarget{class_tetris_aea6bdb1f4d97fd5f1b1a48a6698c2522}\label{class_tetris_aea6bdb1f4d97fd5f1b1a48a6698c2522} 
+\index{Tetris@{Tetris}!tets@{tets}}
+\index{tets@{tets}!Tetris@{Tetris}}
+\doxysubsubsection{\texorpdfstring{tets}{tets}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tetramino}{Tetramino}} Tetris\+::tets\mbox{[}\mbox{\hyperlink{class_tetris_a2af386e6902e53e0a0d8718167266c63}{size\+\_\+tet\+\_\+types}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{tetris_8hpp}{tetris.\+hpp}}\end{DoxyCompactItemize}
+D\+:/\+Programs/\+Tetris/include/\mbox{\hyperlink{tetris_8hpp}{tetris.\+hpp}}\end{DoxyCompactItemize}

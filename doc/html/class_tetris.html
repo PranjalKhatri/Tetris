@@ -24,10 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Tetris.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.0.2.0</span>
+   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.2.2</span>
    </div>
-   <div id="projectbrief">A weirdly working tetris  no one knows how it works or how it crashes</div>
+   <div id="projectbrief">Idk how this shit works</div>
   </td>
  </tr>
  </tbody>
@@ -96,6 +97,8 @@ $(document).ready(function(){initNavTree('class_tetris.html',''); initResizable(
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_tetris-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Tetris Class Reference</div></div>
 </div><!--header-->
@@ -162,6 +165,50 @@ Public Attributes</h2></td></tr>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a2af386e6902e53e0a0d8718167266c63" id="r_a2af386e6902e53e0a0d8718167266c63"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a2af386e6902e53e0a0d8718167266c63">size_tet_types</a> = 5</td></tr>
 <tr class="separator:a2af386e6902e53e0a0d8718167266c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae4f27ecaf13873e39ca9a70eb74b5949" id="r_ae4f27ecaf13873e39ca9a70eb74b5949"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#ae4f27ecaf13873e39ca9a70eb74b5949">DoesPieceFit</a> (<a class="el" href="class_tetramino.html">Tetramino</a> t, int PosX, int PosY)</td></tr>
+<tr class="memdesc:ae4f27ecaf13873e39ca9a70eb74b5949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given <a class="el" href="class_tetramino.html">Tetramino</a> fits at the given position in the playing field.  <br /></td></tr>
+<tr class="separator:ae4f27ecaf13873e39ca9a70eb74b5949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3aad2f10974de1d28167b4396b179ac" id="r_ab3aad2f10974de1d28167b4396b179ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#ab3aad2f10974de1d28167b4396b179ac">InitTetraminos</a> (void)</td></tr>
+<tr class="memdesc:ab3aad2f10974de1d28167b4396b179ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize all your tetraminos here  <br /></td></tr>
+<tr class="separator:ab3aad2f10974de1d28167b4396b179ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88209f7008dd2dc49792a75121558551" id="r_a88209f7008dd2dc49792a75121558551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a88209f7008dd2dc49792a75121558551">setcolor</a> (int color)</td></tr>
+<tr class="separator:a88209f7008dd2dc49792a75121558551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a23c2062e5d8859f48544d6eb8b8a83ac" id="r_a23c2062e5d8859f48544d6eb8b8a83ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a23c2062e5d8859f48544d6eb8b8a83ac">is_rotated</a> = false</td></tr>
+<tr class="separator:a23c2062e5d8859f48544d6eb8b8a83ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6304e05507555b058192ee7ff2439f4" id="r_ad6304e05507555b058192ee7ff2439f4"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#ad6304e05507555b058192ee7ff2439f4">SCREENWIDTH</a> = 12</td></tr>
+<tr class="separator:ad6304e05507555b058192ee7ff2439f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e0124f2abc083e9fb28bce0b217a9bd" id="r_a0e0124f2abc083e9fb28bce0b217a9bd"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a0e0124f2abc083e9fb28bce0b217a9bd">SCREENHEIGHT</a> = 18</td></tr>
+<tr class="separator:a0e0124f2abc083e9fb28bce0b217a9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a55a5e2af1b8b7f66f352b34917681e" id="r_a8a55a5e2af1b8b7f66f352b34917681e"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a8a55a5e2af1b8b7f66f352b34917681e">playing_field</a></td></tr>
+<tr class="separator:a8a55a5e2af1b8b7f66f352b34917681e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03a7379a5a27bb1368349fa46c36af86" id="r_a03a7379a5a27bb1368349fa46c36af86"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a03a7379a5a27bb1368349fa46c36af86">last_playing_field</a></td></tr>
+<tr class="separator:a03a7379a5a27bb1368349fa46c36af86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f387430f568cabb854af4fd22fbd7c2" id="r_a8f387430f568cabb854af4fd22fbd7c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a8f387430f568cabb854af4fd22fbd7c2">m_isrunning</a> = true</td></tr>
+<tr class="separator:a8f387430f568cabb854af4fd22fbd7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a70343e6498fa188130fdcf910f506" id="r_a17a70343e6498fa188130fdcf910f506"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a17a70343e6498fa188130fdcf910f506">can_godown</a> = true</td></tr>
+<tr class="separator:a17a70343e6498fa188130fdcf910f506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a271ad148780db3359c57df4f187297d3" id="r_a271ad148780db3359c57df4f187297d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_random.html">Random</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a271ad148780db3359c57df4f187297d3">random</a></td></tr>
+<tr class="separator:a271ad148780db3359c57df4f187297d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6087f4e2f11efa5aa5d3ca238c125e6f" id="r_a6087f4e2f11efa5aa5d3ca238c125e6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tetramino.html">Tetramino</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a6087f4e2f11efa5aa5d3ca238c125e6f">last_spawn</a> = nullptr</td></tr>
+<tr class="separator:a6087f4e2f11efa5aa5d3ca238c125e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bd82f089ca618bdbb6d389b318ed042" id="r_a7bd82f089ca618bdbb6d389b318ed042"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689">tet_types</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a7bd82f089ca618bdbb6d389b318ed042">next_spawn</a></td></tr>
+<tr class="separator:a7bd82f089ca618bdbb6d389b318ed042"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b81ac5a75a603ce9f35bc44ad5eab0" id="r_a95b81ac5a75a603ce9f35bc44ad5eab0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a95b81ac5a75a603ce9f35bc44ad5eab0">last_posX</a> = 0</td></tr>
+<tr class="separator:a95b81ac5a75a603ce9f35bc44ad5eab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a387e746df0ef81a805af914e94875b8a" id="r_a387e746df0ef81a805af914e94875b8a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a387e746df0ef81a805af914e94875b8a">last_posY</a> = 0</td></tr>
+<tr class="separator:a387e746df0ef81a805af914e94875b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea6bdb1f4d97fd5f1b1a48a6698c2522" id="r_aea6bdb1f4d97fd5f1b1a48a6698c2522"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tetramino.html">Tetramino</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#aea6bdb1f4d97fd5f1b1a48a6698c2522">tets</a> [<a class="el" href="class_tetris.html#a2af386e6902e53e0a0d8718167266c63">size_tet_types</a>]</td></tr>
+<tr class="separator:aea6bdb1f4d97fd5f1b1a48a6698c2522"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97526f5cc8c6f0a12edd31b26310b811" id="r_a97526f5cc8c6f0a12edd31b26310b811"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a97526f5cc8c6f0a12edd31b26310b811">px</a> = 0</td></tr>
+<tr class="separator:a97526f5cc8c6f0a12edd31b26310b811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d8a5eec6ca86867891e88d7edfc3763" id="r_a5d8a5eec6ca86867891e88d7edfc3763"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetris.html#a5d8a5eec6ca86867891e88d7edfc3763">py</a> = 1</td></tr>
+<tr class="separator:a5d8a5eec6ca86867891e88d7edfc3763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a2da8be2e5cb7e0bebdcdd31e21929689" name="a2da8be2e5cb7e0bebdcdd31e21929689"></a>
@@ -262,6 +309,59 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ae4f27ecaf13873e39ca9a70eb74b5949" name="ae4f27ecaf13873e39ca9a70eb74b5949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f27ecaf13873e39ca9a70eb74b5949">&#9670;&#160;</a></span>DoesPieceFit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tetris::DoesPieceFit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tetramino.html">Tetramino</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>PosX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>PosY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the given <a class="el" href="class_tetramino.html">Tetramino</a> fits at the given position in the playing field. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td><a class="el" href="class_tetramino.html">Tetramino</a> to check </td></tr>
+    <tr><td class="paramname">PosX,PosY</td><td>origin of <a class="el" href="class_tetramino.html">Tetramino</a> on board </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if it fits and false if it dont</dd></dl>
+<p>a piece fits on board whenever its piece array have a 1 on its position and our playing field has an empty block at tha position </p>
+
+</div>
+</div>
 <a id="a311943597585d781a6f7dc5c3d5b3cee" name="a311943597585d781a6f7dc5c3d5b3cee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a311943597585d781a6f7dc5c3d5b3cee">&#9670;&#160;</a></span>GameLoop()</h2>
 
@@ -307,6 +407,34 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Handles the Key Presses , works on a separate thread. </p>
+
+</div>
+</div>
+<a id="ab3aad2f10974de1d28167b4396b179ac" name="ab3aad2f10974de1d28167b4396b179ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3aad2f10974de1d28167b4396b179ac">&#9670;&#160;</a></span>InitTetraminos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tetris::InitTetraminos </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>initialize all your tetraminos here </p>
 
 </div>
 </div>
@@ -391,6 +519,32 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a88209f7008dd2dc49792a75121558551" name="a88209f7008dd2dc49792a75121558551"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88209f7008dd2dc49792a75121558551">&#9670;&#160;</a></span>setcolor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tetris::setcolor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab2e4ada486ea700831eead2c078faa06" name="ab2e4ada486ea700831eead2c078faa06"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab2e4ada486ea700831eead2c078faa06">&#9670;&#160;</a></span>spawn()</h2>
 
@@ -437,6 +591,28 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a17a70343e6498fa188130fdcf910f506" name="a17a70343e6498fa188130fdcf910f506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17a70343e6498fa188130fdcf910f506">&#9670;&#160;</a></span>can_godown</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tetris::can_godown = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af57251dffe8ade668a403c6408ab42f9" name="af57251dffe8ade668a403c6408ab42f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af57251dffe8ade668a403c6408ab42f9">&#9670;&#160;</a></span>current_Score</h2>
 
@@ -447,6 +623,138 @@ Static Public Attributes</h2></td></tr>
           <td class="memname">int Tetris::current_Score = 0</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23c2062e5d8859f48544d6eb8b8a83ac" name="a23c2062e5d8859f48544d6eb8b8a83ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23c2062e5d8859f48544d6eb8b8a83ac">&#9670;&#160;</a></span>is_rotated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tetris::is_rotated = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03a7379a5a27bb1368349fa46c36af86" name="a03a7379a5a27bb1368349fa46c36af86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03a7379a5a27bb1368349fa46c36af86">&#9670;&#160;</a></span>last_playing_field</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* Tetris::last_playing_field</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95b81ac5a75a603ce9f35bc44ad5eab0" name="a95b81ac5a75a603ce9f35bc44ad5eab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95b81ac5a75a603ce9f35bc44ad5eab0">&#9670;&#160;</a></span>last_posX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tetris::last_posX = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a387e746df0ef81a805af914e94875b8a" name="a387e746df0ef81a805af914e94875b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a387e746df0ef81a805af914e94875b8a">&#9670;&#160;</a></span>last_posY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tetris::last_posY = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6087f4e2f11efa5aa5d3ca238c125e6f" name="a6087f4e2f11efa5aa5d3ca238c125e6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6087f4e2f11efa5aa5d3ca238c125e6f">&#9670;&#160;</a></span>last_spawn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tetramino.html">Tetramino</a>* Tetris::last_spawn = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f387430f568cabb854af4fd22fbd7c2" name="a8f387430f568cabb854af4fd22fbd7c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f387430f568cabb854af4fd22fbd7c2">&#9670;&#160;</a></span>m_isrunning</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tetris::m_isrunning = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -465,6 +773,116 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7bd82f089ca618bdbb6d389b318ed042" name="a7bd82f089ca618bdbb6d389b318ed042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bd82f089ca618bdbb6d389b318ed042">&#9670;&#160;</a></span>next_spawn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689">tet_types</a> Tetris::next_spawn</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a55a5e2af1b8b7f66f352b34917681e" name="a8a55a5e2af1b8b7f66f352b34917681e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a55a5e2af1b8b7f66f352b34917681e">&#9670;&#160;</a></span>playing_field</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* Tetris::playing_field</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a97526f5cc8c6f0a12edd31b26310b811" name="a97526f5cc8c6f0a12edd31b26310b811"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97526f5cc8c6f0a12edd31b26310b811">&#9670;&#160;</a></span>px</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tetris::px = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d8a5eec6ca86867891e88d7edfc3763" name="a5d8a5eec6ca86867891e88d7edfc3763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d8a5eec6ca86867891e88d7edfc3763">&#9670;&#160;</a></span>py</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tetris::py = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a271ad148780db3359c57df4f187297d3" name="a271ad148780db3359c57df4f187297d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a271ad148780db3359c57df4f187297d3">&#9670;&#160;</a></span>random</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_random.html">Random</a> Tetris::random</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afedb9b35b91854b6e1b1420d90f1b3b2" name="afedb9b35b91854b6e1b1420d90f1b3b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afedb9b35b91854b6e1b1420d90f1b3b2">&#9670;&#160;</a></span>rowscore</h2>
 
@@ -475,6 +893,50 @@ Static Public Attributes</h2></td></tr>
           <td class="memname">int Tetris::rowscore = 10</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e0124f2abc083e9fb28bce0b217a9bd" name="a0e0124f2abc083e9fb28bce0b217a9bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e0124f2abc083e9fb28bce0b217a9bd">&#9670;&#160;</a></span>SCREENHEIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int Tetris::SCREENHEIGHT = 18</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6304e05507555b058192ee7ff2439f4" name="ad6304e05507555b058192ee7ff2439f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6304e05507555b058192ee7ff2439f4">&#9670;&#160;</a></span>SCREENWIDTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int Tetris::SCREENWIDTH = 12</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -501,8 +963,30 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aea6bdb1f4d97fd5f1b1a48a6698c2522" name="aea6bdb1f4d97fd5f1b1a48a6698c2522"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea6bdb1f4d97fd5f1b1a48a6698c2522">&#9670;&#160;</a></span>tets</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tetramino.html">Tetramino</a> Tetris::tets[<a class="el" href="class_tetris.html#a2af386e6902e53e0a0d8718167266c63">size_tet_types</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="tetris_8hpp_source.html">tetris.hpp</a></li>
+<li>D:/Programs/Tetris/include/<a class="el" href="tetris_8hpp_source.html">tetris.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

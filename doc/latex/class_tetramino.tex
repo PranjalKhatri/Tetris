@@ -25,6 +25,24 @@ void \mbox{\hyperlink{class_tetramino_ad7fc5e3d77f9b0d7ead13b1946b351fb}{Set\+Ne
 \item 
 \mbox{\hyperlink{class_tetramino_acefbb9c4030428c1d9ab2a3598a6dc7d}{\texorpdfstring{$\sim$}{\string~}\+Tetramino}} (void)
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_tetramino_aebe1c1ef545ba3eeec6ce632162e006b}{Compute\+Next\+Rotation}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_tetramino_a5eebbfb70961eb8470817ea2ca209220}{m\+\_\+height}}
+\item 
+int \mbox{\hyperlink{class_tetramino_af03af0eb0b6be8a3ace22a4cab0c2e71}{m\+\_\+width}}
+\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{class_tetramino_ad4ea4dc4cc7dc7f45a5865d272032257}{m\+\_\+piece}}
+\item 
+int \mbox{\hyperlink{class_tetramino_ad499a3e724ffdf4e4ff589e39c903e02}{m\+\_\+tblocks}} = 0
+\item 
+\mbox{\hyperlink{class_tetramino}{Tetramino}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tetramino_a15274da1014d0fd4ba4b77c8e2c2dd48}{m\+\_\+nextpiece}} = nullptr
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -49,6 +67,12 @@ void \mbox{\hyperlink{class_tetramino_ad7fc5e3d77f9b0d7ead13b1946b351fb}{Set\+Ne
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_tetramino_aebe1c1ef545ba3eeec6ce632162e006b}\label{class_tetramino_aebe1c1ef545ba3eeec6ce632162e006b} 
+\index{Tetramino@{Tetramino}!ComputeNextRotation@{ComputeNextRotation}}
+\index{ComputeNextRotation@{ComputeNextRotation}!Tetramino@{Tetramino}}
+\doxysubsubsection{\texorpdfstring{ComputeNextRotation()}{ComputeNextRotation()}}
+{\footnotesize\ttfamily void Tetramino\+::\+Compute\+Next\+Rotation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2}\label{class_tetramino_aacc759c92a20295cb5e2a04de5aa84c2} 
 \index{Tetramino@{Tetramino}!GetHeight@{GetHeight}}
 \index{GetHeight@{GetHeight}!Tetramino@{Tetramino}}
@@ -87,6 +111,40 @@ void \mbox{\hyperlink{class_tetramino_ad7fc5e3d77f9b0d7ead13b1946b351fb}{Set\+Ne
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_tetramino_a5eebbfb70961eb8470817ea2ca209220}\label{class_tetramino_a5eebbfb70961eb8470817ea2ca209220} 
+\index{Tetramino@{Tetramino}!m\_height@{m\_height}}
+\index{m\_height@{m\_height}!Tetramino@{Tetramino}}
+\doxysubsubsection{\texorpdfstring{m\_height}{m\_height}}
+{\footnotesize\ttfamily int Tetramino\+::m\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetramino_a15274da1014d0fd4ba4b77c8e2c2dd48}\label{class_tetramino_a15274da1014d0fd4ba4b77c8e2c2dd48} 
+\index{Tetramino@{Tetramino}!m\_nextpiece@{m\_nextpiece}}
+\index{m\_nextpiece@{m\_nextpiece}!Tetramino@{Tetramino}}
+\doxysubsubsection{\texorpdfstring{m\_nextpiece}{m\_nextpiece}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tetramino}{Tetramino}}\texorpdfstring{$\ast$}{*} Tetramino\+::m\+\_\+nextpiece = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetramino_ad4ea4dc4cc7dc7f45a5865d272032257}\label{class_tetramino_ad4ea4dc4cc7dc7f45a5865d272032257} 
+\index{Tetramino@{Tetramino}!m\_piece@{m\_piece}}
+\index{m\_piece@{m\_piece}!Tetramino@{Tetramino}}
+\doxysubsubsection{\texorpdfstring{m\_piece}{m\_piece}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ Tetramino\+::m\+\_\+piece\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetramino_ad499a3e724ffdf4e4ff589e39c903e02}\label{class_tetramino_ad499a3e724ffdf4e4ff589e39c903e02} 
+\index{Tetramino@{Tetramino}!m\_tblocks@{m\_tblocks}}
+\index{m\_tblocks@{m\_tblocks}!Tetramino@{Tetramino}}
+\doxysubsubsection{\texorpdfstring{m\_tblocks}{m\_tblocks}}
+{\footnotesize\ttfamily int Tetramino\+::m\+\_\+tblocks = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tetramino_af03af0eb0b6be8a3ace22a4cab0c2e71}\label{class_tetramino_af03af0eb0b6be8a3ace22a4cab0c2e71} 
+\index{Tetramino@{Tetramino}!m\_width@{m\_width}}
+\index{m\_width@{m\_width}!Tetramino@{Tetramino}}
+\doxysubsubsection{\texorpdfstring{m\_width}{m\_width}}
+{\footnotesize\ttfamily int Tetramino\+::m\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{tetramino_8hpp}{tetramino.\+hpp}}\end{DoxyCompactItemize}
+D\+:/\+Programs/\+Tetris/include/\mbox{\hyperlink{tetramino_8hpp}{tetramino.\+hpp}}\item 
+D\+:/\+Programs/\+Tetris/lib/\mbox{\hyperlink{tetramino_8cpp}{tetramino.\+cpp}}\end{DoxyCompactItemize}

@@ -24,10 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Tetris.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.0.2.0</span>
+   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.2.2</span>
    </div>
-   <div id="projectbrief">A weirdly working tetris  no one knows how it works or how it crashes</div>
+   <div id="projectbrief">Idk how this shit works</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +93,8 @@ $(document).ready(function(){initNavTree('class_tetramino.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_tetramino-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Tetramino Class Reference</div></div>
 </div><!--header-->
@@ -119,6 +122,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7062f2d01fe719d9e723010fd002606b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acefbb9c4030428c1d9ab2a3598a6dc7d" id="r_acefbb9c4030428c1d9ab2a3598a6dc7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetramino.html#acefbb9c4030428c1d9ab2a3598a6dc7d">~Tetramino</a> (void)</td></tr>
 <tr class="separator:acefbb9c4030428c1d9ab2a3598a6dc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aebe1c1ef545ba3eeec6ce632162e006b" id="r_aebe1c1ef545ba3eeec6ce632162e006b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetramino.html#aebe1c1ef545ba3eeec6ce632162e006b">ComputeNextRotation</a> (void)</td></tr>
+<tr class="separator:aebe1c1ef545ba3eeec6ce632162e006b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5eebbfb70961eb8470817ea2ca209220" id="r_a5eebbfb70961eb8470817ea2ca209220"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetramino.html#a5eebbfb70961eb8470817ea2ca209220">m_height</a></td></tr>
+<tr class="separator:a5eebbfb70961eb8470817ea2ca209220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af03af0eb0b6be8a3ace22a4cab0c2e71" id="r_af03af0eb0b6be8a3ace22a4cab0c2e71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetramino.html#af03af0eb0b6be8a3ace22a4cab0c2e71">m_width</a></td></tr>
+<tr class="separator:af03af0eb0b6be8a3ace22a4cab0c2e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4ea4dc4cc7dc7f45a5865d272032257" id="r_ad4ea4dc4cc7dc7f45a5865d272032257"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetramino.html#ad4ea4dc4cc7dc7f45a5865d272032257">m_piece</a></td></tr>
+<tr class="separator:ad4ea4dc4cc7dc7f45a5865d272032257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad499a3e724ffdf4e4ff589e39c903e02" id="r_ad499a3e724ffdf4e4ff589e39c903e02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetramino.html#ad499a3e724ffdf4e4ff589e39c903e02">m_tblocks</a> = 0</td></tr>
+<tr class="separator:ad499a3e724ffdf4e4ff589e39c903e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15274da1014d0fd4ba4b77c8e2c2dd48" id="r_a15274da1014d0fd4ba4b77c8e2c2dd48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tetramino.html">Tetramino</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tetramino.html#a15274da1014d0fd4ba4b77c8e2c2dd48">m_nextpiece</a> = nullptr</td></tr>
+<tr class="separator:a15274da1014d0fd4ba4b77c8e2c2dd48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af6fcccc8d7845b1bf0ff8f8f4ecfd979" name="af6fcccc8d7845b1bf0ff8f8f4ecfd979"></a>
@@ -199,6 +220,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aebe1c1ef545ba3eeec6ce632162e006b" name="aebe1c1ef545ba3eeec6ce632162e006b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebe1c1ef545ba3eeec6ce632162e006b">&#9670;&#160;</a></span>ComputeNextRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tetramino::ComputeNextRotation </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aacc759c92a20295cb5e2a04de5aa84c2" name="aacc759c92a20295cb5e2a04de5aa84c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacc759c92a20295cb5e2a04de5aa84c2">&#9670;&#160;</a></span>GetHeight()</h2>
 
@@ -355,8 +402,120 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="tetramino_8hpp_source.html">tetramino.hpp</a></li>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5eebbfb70961eb8470817ea2ca209220" name="a5eebbfb70961eb8470817ea2ca209220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eebbfb70961eb8470817ea2ca209220">&#9670;&#160;</a></span>m_height</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tetramino::m_height</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15274da1014d0fd4ba4b77c8e2c2dd48" name="a15274da1014d0fd4ba4b77c8e2c2dd48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15274da1014d0fd4ba4b77c8e2c2dd48">&#9670;&#160;</a></span>m_nextpiece</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tetramino.html">Tetramino</a>* Tetramino::m_nextpiece = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4ea4dc4cc7dc7f45a5865d272032257" name="ad4ea4dc4cc7dc7f45a5865d272032257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4ea4dc4cc7dc7f45a5865d272032257">&#9670;&#160;</a></span>m_piece</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;vector&lt;int&gt; &gt; Tetramino::m_piece</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad499a3e724ffdf4e4ff589e39c903e02" name="ad499a3e724ffdf4e4ff589e39c903e02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad499a3e724ffdf4e4ff589e39c903e02">&#9670;&#160;</a></span>m_tblocks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tetramino::m_tblocks = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af03af0eb0b6be8a3ace22a4cab0c2e71" name="af03af0eb0b6be8a3ace22a4cab0c2e71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af03af0eb0b6be8a3ace22a4cab0c2e71">&#9670;&#160;</a></span>m_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tetramino::m_width</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>D:/Programs/Tetris/include/<a class="el" href="tetramino_8hpp_source.html">tetramino.hpp</a></li>
+<li>D:/Programs/Tetris/lib/<a class="el" href="tetramino_8cpp.html">tetramino.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

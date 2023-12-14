@@ -79,6 +79,7 @@ private:
     /// @param t Tetramino to check
     /// @param PosX,PosY origin of Tetramino on board 
     /// @return true if it fits and false if it dont
+    /// @details a piece fits on board whenever its piece array have a 1 on its position and our playing field has an empty block at tha position
     bool DoesPieceFit(Tetramino t, int PosX, int PosY);
 
     /// @brief initialize all your tetraminos here
@@ -135,9 +136,11 @@ bool Tetris::DoesPieceFit(Tetramino t, int PosX, int PosY)
 
 Tetris::Tetris()
 {
+    //set next spawn at the first occurrence
     int rd;
     rd = random.GetRandomNumber(5);
     next_spawn = static_cast<tet_types>(rd);
+    //initialize variables
     can_godown = true;
     m_isrunning = true;
     last_spawn = nullptr;
@@ -151,30 +154,29 @@ Tetris::Tetris()
             last_playing_field[y * SCREENWIDTH + x] = (x == 0 || x == SCREENWIDTH - 1 || y == 0 || y == SCREENHEIGHT - 1) ? '#' : ' ';
         }
     }
+    //make a hole for tetraminos to come
     playing_field[(int(SCREENHEIGHT / 2) - 1) * SCREENWIDTH] = ' ';
     playing_field[(int(SCREENHEIGHT / 2)) * SCREENWIDTH] = ' ';
     playing_field[(int(SCREENHEIGHT / 2) + 1) * SCREENWIDTH] = ' ';
+
     InitTetraminos();
 }
 
 void Tetris::GameLoop()
 {
     while (m_isrunning) {
-        //Timings
-
-        //Input
-            //Taken via threading
-        //Logic
+        //first job is to rotate
         if (is_rotated)
         {
             Rotate();
 
         }
-
+        //check if last spawn is there if not try to make a new spawn
         if (last_spawn != nullptr) {
+            //movement in x needs to be checked so that we can move at least one block if two is not possible
             if (px != 0) {
                 int i = 0;
-                if (px > 0) {
+                if (px >= 0) {
                     for (i = px; i >= 0; i--)
                     {
                         if (DoesPieceFit((*last_spawn), (last_posX + i), (last_posY + py))) {
@@ -191,21 +193,30 @@ void Tetris::GameLoop()
                     }
 
                 }
-                std::cout << "fit at px : " << i << endl;
-                px = i;
+                // std::cout << "fit at px : " << i << endl;
+                // if(!(px  >=0 && i <=0))
+                if (px > 0 and i < 0) {
+
+                }
+                else {
+
+                    px = i;
+                }
             }
+            //check if it fits at the given x and y
             if (DoesPieceFit((*last_spawn), (last_posX + px), (last_posY + py)))
             {
                 Move(px, py, false);
             }
-            else
+            else // if it doesnt fill the piece wth random letters
             {
                 Move(px, py, true);
             }
-        }
+        }//if last spawn is null spawn a new tetramino
         else {
             spawn(8, 3, next_spawn);
         }
+        //show the user input
         std::cout << "x " << px << " y" << -py << endl;
 
         //Handles the score
@@ -240,7 +251,7 @@ void Tetris::Display_Field()
     switch (next_spawn)
     {
     case 0:
-        std::cout << "Square";
+        std::cout << "square";
         break;
 
     case 1:
@@ -252,7 +263,7 @@ void Tetris::Display_Field()
         break;
 
     case 3:
-        std::cout << "Straight";
+        std::cout << "----";
         break;
     case 4:
         std::cout << "T";
@@ -308,7 +319,7 @@ void Tetris::Move(int x, int y, bool randomize) {
             {
                 if ((arr[j][i] == 1) && (playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] == '0')) {
 
-                    playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = "ABCD"[random.GetRandomNumber(4)];
+                    playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = "◘"[random.GetRandomNumber(1)];
 
                     last_playing_field[((j + last_posX) * SCREENWIDTH) - i + last_posY] = 'G';
                 }
@@ -394,14 +405,13 @@ void* Tetris::GetInput(void* obj)
         }
         if (GetKeyState('Z') & 0x8000) {
             if (t->is_rotated == false)
-                t->is_rotated = true;  
+                t->is_rotated = true;
         }
         t->px = a;
         Sleep(100);
         // t->py = b;
     }
 }
-
 
 void Tetris::InitTetraminos() {
     //23 345
@@ -508,6 +518,7 @@ void Tetris::spawn(int posX, int posY, tet_types t)
 }
 
 void Tetris::Rotate() {
+    is_rotated = false;
     Tetramino rp = *(last_spawn->GetRotatedPiece());
     if (DoesPieceFit(rp, last_posX, last_posY)) {
         for (int i = 0; i < SCREENWIDTH; i++)
@@ -538,7 +549,7 @@ void Tetris::Rotate() {
 
 
     }
-    is_rotated = false;
+    // is_rotated = false;
 }
 
 Tetris::~Tetris()

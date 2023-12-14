@@ -24,10 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Tetris.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.0.2.0</span>
+   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.2.2</span>
    </div>
-   <div id="projectbrief">A weirdly working tetris  no one knows how it works or how it crashes</div>
+   <div id="projectbrief">Idk how this shit works</div>
   </td>
  </tr>
  </tbody>
@@ -96,10 +97,16 @@ $(document).ready(function(){initNavTree('class_tetramino.html',''); initResizab
 
 <p>This is the complete list of members for <a class="el" href="class_tetramino.html">Tetramino</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_tetramino.html#aacc759c92a20295cb5e2a04de5aa84c2">GetHeight</a>(void)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_tetramino.html#ae09e94695247393ee10108af3cfaced1">GetPiece</a>(void)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tetramino.html#a7062f2d01fe719d9e723010fd002606b">GetRotatedPiece</a>(void)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_tetramino.html#ae2e5046b0871330f5c27f7389c5ba247">GetWidth</a>(void)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetramino.html#aebe1c1ef545ba3eeec6ce632162e006b">ComputeNextRotation</a>(void)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetramino.html#aacc759c92a20295cb5e2a04de5aa84c2">GetHeight</a>(void)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetramino.html#ae09e94695247393ee10108af3cfaced1">GetPiece</a>(void)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetramino.html#a7062f2d01fe719d9e723010fd002606b">GetRotatedPiece</a>(void)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetramino.html#ae2e5046b0871330f5c27f7389c5ba247">GetWidth</a>(void)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetramino.html#a5eebbfb70961eb8470817ea2ca209220">m_height</a></td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetramino.html#a15274da1014d0fd4ba4b77c8e2c2dd48">m_nextpiece</a></td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetramino.html#ad4ea4dc4cc7dc7f45a5865d272032257">m_piece</a></td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetramino.html#ad499a3e724ffdf4e4ff589e39c903e02">m_tblocks</a></td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetramino.html#af03af0eb0b6be8a3ace22a4cab0c2e71">m_width</a></td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_tetramino.html#ad7fc5e3d77f9b0d7ead13b1946b351fb">SetNextPiece</a>(Tetramino *t)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_tetramino.html#acb5aaf031e33755dcec48810a0de3a02">SetVars</a>(int h, int w, char *arr)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_tetramino.html#af6fcccc8d7845b1bf0ff8f8f4ecfd979">Tetramino</a>(int height, int width, char *arr)</td><td class="entry"><a class="el" href="class_tetramino.html">Tetramino</a></td><td class="entry"></td></tr>

@@ -11,7 +11,7 @@ class Random
 private:
 public:
     Random();
-    int GetRandomNumber(int lb,int ub);
+    int GetRandomNumber(int lb, int ub);
     int GetRandomNumber(int range);
 };
 
@@ -20,8 +20,7 @@ class FileOps
 private:
     /// @brief name of the file
     std::string f_name;
-    /// @brief individual lines of the file
-    std::vector<std::string> lines;
+
 public:
     /// @brief Initialises the class and set the file name
     /// @param name name of file to use
@@ -36,9 +35,5 @@ public:
     /// @brief Clears the content of the file
     void clear();
 };
-
-
-
-
 
 #endif

@@ -24,10 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Tetris.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.0.2.0</span>
+   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.2.2</span>
    </div>
-   <div id="projectbrief">A weirdly working tetris  no one knows how it works or how it crashes</div>
+   <div id="projectbrief">Idk how this shit works</div>
   </td>
  </tr>
  </tbody>
@@ -96,25 +97,43 @@ $(document).ready(function(){initNavTree('class_tetris.html',''); initResizable(
 
 <p>This is the complete list of members for <a class="el" href="class_tetris.html">Tetris</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#ac37ede4f94d0a1109b3aa5d3990a138b">CheckRow</a>(void)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#af57251dffe8ade668a403c6408ab42f9">current_Score</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a450fddc9532057c2e5686fbc7ab509b9">Display_Field</a>(void)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a17a70343e6498fa188130fdcf910f506">can_godown</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#ac37ede4f94d0a1109b3aa5d3990a138b">CheckRow</a>(void)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#af57251dffe8ade668a403c6408ab42f9">current_Score</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a450fddc9532057c2e5686fbc7ab509b9">Display_Field</a>(void)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#ae4f27ecaf13873e39ca9a70eb74b5949">DoesPieceFit</a>(Tetramino t, int PosX, int PosY)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a311943597585d781a6f7dc5c3d5b3cee">GameLoop</a>(void)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a5f228522c2d7376d2d3cc9e23b6482be">GetInput</a>(void *)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#ab3aad2f10974de1d28167b4396b179ac">InitTetraminos</a>(void)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a23c2062e5d8859f48544d6eb8b8a83ac">is_rotated</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#ae35c3244db72ef10b9e34efd0f5d2ea5">IsRunning</a>(void)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a81e13e7210ec7a75ba74b990eda2046e">Move</a>(int x, int y, bool randomize)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a62b1bd3783726a3c30247f51e693608e">multiplier</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a03a7379a5a27bb1368349fa46c36af86">last_playing_field</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a95b81ac5a75a603ce9f35bc44ad5eab0">last_posX</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a387e746df0ef81a805af914e94875b8a">last_posY</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a6087f4e2f11efa5aa5d3ca238c125e6f">last_spawn</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a8f387430f568cabb854af4fd22fbd7c2">m_isrunning</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a81e13e7210ec7a75ba74b990eda2046e">Move</a>(int x, int y, bool randomize)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a62b1bd3783726a3c30247f51e693608e">multiplier</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a7bd82f089ca618bdbb6d389b318ed042">next_spawn</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a8a55a5e2af1b8b7f66f352b34917681e">playing_field</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a97526f5cc8c6f0a12edd31b26310b811">px</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a5d8a5eec6ca86867891e88d7edfc3763">py</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a271ad148780db3359c57df4f187297d3">random</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a2d231c022a51aadad9b3c41fa7c558f9">Rotate</a>()</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#afedb9b35b91854b6e1b1420d90f1b3b2">rowscore</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a2af386e6902e53e0a0d8718167266c63">size_tet_types</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#ab2e4ada486ea700831eead2c078faa06">spawn</a>(int posX, int posY, tet_types t)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689aa371eb3876d7732ea11673edbbfd9821">tet_bar</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689ade2db103e14ce770ff022d0d0b3418bb">tet_l</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689ad73e7f17cef9b77f0db2283cdd3beaea">tet_s</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689a1c4c9fdae8071f6b7a35a6b138569e31">tet_square</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689afa3daa2be4ee8fcacd5c548127ceefd6">tet_t</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689">tet_types</a> enum name</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a0216a055ecb3568412c35fc78e52bf14">Tetris</a>()</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a0e0124f2abc083e9fb28bce0b217a9bd">SCREENHEIGHT</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#ad6304e05507555b058192ee7ff2439f4">SCREENWIDTH</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a88209f7008dd2dc49792a75121558551">setcolor</a>(int color)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a2af386e6902e53e0a0d8718167266c63">size_tet_types</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#ab2e4ada486ea700831eead2c078faa06">spawn</a>(int posX, int posY, tet_types t)</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689aa371eb3876d7732ea11673edbbfd9821">tet_bar</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689ade2db103e14ce770ff022d0d0b3418bb">tet_l</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689ad73e7f17cef9b77f0db2283cdd3beaea">tet_s</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689a1c4c9fdae8071f6b7a35a6b138569e31">tet_square</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689afa3daa2be4ee8fcacd5c548127ceefd6">tet_t</a> enum value</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#a2da8be2e5cb7e0bebdcdd31e21929689">tet_types</a> enum name</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a0216a055ecb3568412c35fc78e52bf14">Tetris</a>()</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tetris.html#aea6bdb1f4d97fd5f1b1a48a6698c2522">tets</a></td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_tetris.html#a83428bf8cd94dc29673d5f0160718818">~Tetris</a>()</td><td class="entry"><a class="el" href="class_tetris.html">Tetris</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->

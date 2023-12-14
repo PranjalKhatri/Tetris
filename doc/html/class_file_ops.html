@@ -24,10 +24,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Tetris.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.0.2.0</span>
+   <div id="projectname">Weird Tetris<span id="projectnumber">&#160;1.2.2</span>
    </div>
-   <div id="projectbrief">A weirdly working tetris  no one knows how it works or how it crashes</div>
+   <div id="projectbrief">Idk how this shit works</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +93,7 @@ $(document).ready(function(){initNavTree('class_file_ops.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_file_ops-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">FileOps Class Reference</div></div>
 </div><!--header-->
@@ -115,6 +117,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7315ae16d8d80b5cdfd5728741aa9147" id="r_a7315ae16d8d80b5cdfd5728741aa9147"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_ops.html#a7315ae16d8d80b5cdfd5728741aa9147">clear</a> ()</td></tr>
 <tr class="memdesc:a7315ae16d8d80b5cdfd5728741aa9147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the content of the file.  <br /></td></tr>
 <tr class="separator:a7315ae16d8d80b5cdfd5728741aa9147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a82a90a706a3764dba67c80d80ce2e283" id="r_a82a90a706a3764dba67c80d80ce2e283"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_ops.html#a82a90a706a3764dba67c80d80ce2e283">f_name</a></td></tr>
+<tr class="memdesc:a82a90a706a3764dba67c80d80ce2e283"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of the file  <br /></td></tr>
+<tr class="separator:a82a90a706a3764dba67c80d80ce2e283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac5d0da3d655c0310b66551d1c1d8298f" name="ac5d0da3d655c0310b66551d1c1d8298f"></a>
@@ -205,6 +213,7 @@ Public Member Functions</h2></td></tr>
 
 <p>reads the lines from the file </p>
 <dl class="section return"><dt>Returns</dt><dd>a vector of strings each corresponding to a different line in order </dd></dl>
+<p>individual lines of the file</p>
 
 </div>
 </div>
@@ -234,8 +243,34 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="utils_8hpp_source.html">utils.hpp</a></li>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a82a90a706a3764dba67c80d80ce2e283" name="a82a90a706a3764dba67c80d80ce2e283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82a90a706a3764dba67c80d80ce2e283">&#9670;&#160;</a></span>f_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string FileOps::f_name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>name of the file </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>D:/Programs/Tetris/include/<a class="el" href="utils_8hpp_source.html">utils.hpp</a></li>
+<li>D:/Programs/Tetris/lib/<a class="el" href="utils_8cpp.html">utils.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
